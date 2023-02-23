@@ -1,6 +1,8 @@
 import {ContainerNode} from "@/types/nodes/containers/ContainerNode";
+import {FlexboxAlignsType} from "@/types/nodes/containers/ContainerNode";
 
-export interface HStackNode extends ContainerNode{
-    type: "h_stack";
-    flex_direction: "row";
+export class HStackNode extends ContainerNode{
+    constructor(justify_content: FlexboxAlignsType = "space-between", align_items: FlexboxAlignsType = "center") {
+        super("h_stack", justify_content, align_items, "row");
+    }
 }

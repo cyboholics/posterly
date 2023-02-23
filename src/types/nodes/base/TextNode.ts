@@ -1,16 +1,12 @@
 import {BaseNode} from "@/types/nodes/base/BaseNode";
+import {DecorationType, FontType, TextNodeCssType} from "@/types/css/base/TextNodeCss";
 
-export const fonts = ["Helvetica", "Arial", "Times New Roman", "Comic Sans", "Roboto"] as const
-export const decorations = ["line-through", "underline", "overline"] as const
-
-type FontType = typeof fonts[number]
-type DecorationType = typeof decorations[number]
-
-export interface TextNode extends BaseNode{
-    color: string;
-    decoration:  DecorationType[];
-    font: FontType;
-    size: number;
-    hyperlink: string | undefined;
-    type: "text";
+export class TextNode extends BaseNode{
+    css: TextNodeCssType;
+    text: string;
+    constructor(text: string, color: string, decoration: DecorationType[], font: FontType, size: number, hyperlink: string | undefined) {
+        super("text");
+        this.text = text
+        this.css = {color, decoration, font, size, hyperlink};
+    }
 }
