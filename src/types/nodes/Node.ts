@@ -1,9 +1,10 @@
 import {randomUUID} from "crypto";
+import {Position} from "@/types/css/elements/Position";
 
 export class Node {
     id: string = randomUUID();
-    type: "h_stack" | "v_stack" | "text" | "image" | "box";
-    constructor(type: "h_stack" | "v_stack" | "text" | "image" | "box") {
-        this.type = type;
+    position: Position;
+    constructor(position: Position) {
+        this.position = position;
     }
 }
