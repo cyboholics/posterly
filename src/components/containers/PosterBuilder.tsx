@@ -1,25 +1,20 @@
 import {Poster} from "@/components/composite/Poster";
-import {Sidebar} from "@/components/composite/Sidebar";
+import {ElementSidebar} from "@/components/composite/ElementSidebar";
+import {Container} from "@/components/base/Container";
+import {CssSidebar} from "@/components/composite/CssSidebar";
 
 export const PosterBuilder = () => {
-    return <div style={{
-        display: "flex",
-        flexDirection: "row",
-        justifyContent: "center",
-        alignItems: "flex-start",
-        height: "100vh",
-        minWidth: "70vw"
-    }}>
-        <div style={{
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            alignItems: "center",
-            height: "100%",
-            width: "70%",
-        }}>
-            <Poster />
-        </div>
-        <Sidebar />
-    </div>
+    return <Container
+        height="100vh"
+        width="100vw"
+    >
+        <ElementSidebar/>
+        <Container
+            flexDirection="column"
+            width="40%"
+        >
+            <Poster/>
+        </Container>
+        <CssSidebar/>
+    </Container>
 }

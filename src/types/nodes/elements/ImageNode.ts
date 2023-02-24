@@ -1,13 +1,11 @@
 import {Node} from "@/types/nodes/Node";
-import {ImageNodeCssType} from "@/types/css/elements/ImageNodeCss";
+import {ImageNodeCss} from "@/types/css/elements/ImageNodeCss";
 import {Position} from "@/types/css/elements/Position";
 
-export class ImageNode extends Node{
-    css: ImageNodeCssType
+export class ImageNode extends Node<ImageNodeCss>{
     src: string;
-    constructor(position: Position = {x_pos:0, y_pos:0}, src: string, height: number | "match_parent", width: number | "match_parent", border_radius: number) {
-        super(position);
+    constructor(position: Position = {x_pos:0, y_pos:0}, src: string, css: ImageNodeCss){
+        super(position, css);
         this.src = src;
-        this.css = {height, width, border_radius}
     }
 }

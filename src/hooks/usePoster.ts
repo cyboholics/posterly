@@ -1,9 +1,6 @@
 import {useContext} from "react";
 import {PosterContext} from "@/providers/PosterProvider";
 import {Node} from "@/types/nodes/Node";
-import {ContainerNode} from "@/types/nodes/containers/ContainerNode";
-import {VStackNode} from "@/types/nodes/containers/VStackNode";
-import {ContainerNodeCssType} from "@/types/css/container/ContainerNodeCSS";
 import {useSnackbar} from "@/hooks/useSnackbar";
 
 export const usePoster = () => {
