@@ -17,6 +17,7 @@ const PosterProvider = ({children}: { children: ReactElement }) => {
         new BoxNode({x_pos: 10, y_pos:90}),
         new BoxNode({x_pos: 90, y_pos:90})
     ])
+    const [selectedNode, setSelectedNode] = useState<Node<any> | null>(null)
     return (
         <PosterContext.Provider value={{poster, setPoster}}>
             {children}
