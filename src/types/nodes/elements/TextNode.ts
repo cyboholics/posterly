@@ -13,10 +13,9 @@ export class TextNode extends Node<TextNodeCss>{
     text: string;
     hyperlink?: string;
     constructor(position: Position = {x_pos:0, y_pos:0}, text: string = "Hello World", hyperlink?: string, css: TextNodeCss = defaultCss){
-        super(position, css);
+        super(position, {...defaultCss, ...css});
         this.text = text;
         this.hyperlink = hyperlink
-
         Object.setPrototypeOf(this, TextNode.prototype);
     }
 

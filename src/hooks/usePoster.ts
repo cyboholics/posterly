@@ -53,6 +53,9 @@ export const usePoster = () => {
         }
         setPoster([...poster]);
     }
+    const reRenderState = () => {
+        setPoster([...poster])
+    }
 
     const isSelected = (id: string) => {
         return selectedNodeId === id;
@@ -60,11 +63,30 @@ export const usePoster = () => {
     const selectNode = (id: string) => {
         setSelectedNodeId(id);
     }
+    const getSelectedNode = () => {
+        if(!selectedNodeId) return null
+        return getNodeById(selectedNodeId);
+    }
+    const getSelectedNodeId = () => {
+        return selectedNodeId
+    }
     const unselectNode = () => {
         setSelectedNodeId(null);
     }
     const throwError = (message: string, severity: "error" | "warning" | "info" = "error") => {
         showErrorMessage(message);
     }
-    return {getAllNodes, getNodeById, insertElement, updateNode, deleteNode, isSelected, selectNode, unselectNode}
+    return {
+        getAllNodes,
+        getNodeById,
+        insertElement,
+        updateNode,
+        deleteNode,
+        isSelected,
+        selectNode,
+        unselectNode,
+        getSelectedNode,
+        getSelectedNodeId,
+        reRenderState
+    }
 }

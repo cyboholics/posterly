@@ -7,11 +7,11 @@ export const BaseElement = ({id, children}: { id: string, children: ReactElement
     const node = getNodeById(id) as BoxNode;
     const startPosition = {x: 0, y: 0}
     return <div
+        className={"draggingIconContainer"}
         draggable={true}
         style={{
             position: "absolute",
             translate: "-50% -50%",
-            cursor: "grab",
             width: "max-content",
             height: "max-content",
             marginTop: `${node?.position.y_pos || 0}px`,
