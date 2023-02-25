@@ -1,6 +1,4 @@
 import {Container} from "@/components/base/Container";
-import {elements} from "@/types/nodes/elements";
-import {ElementSidebarRow} from "@/components/base/SidebarRow/ElementSidebarRow";
 
 export const CssSidebar = () => {
     return <Container
@@ -24,20 +22,6 @@ export const CssSidebar = () => {
             <h1 style={{margin: "15px", textAlign: "center"}}>Style</h1>
         </div>
         <div style={{width: "100%"}}>
-            {elements.map((element, index) => {
-                return <ElementSidebarRow
-                    key={index}
-                    title={element.title}
-                    description={element.description}
-                    styles={{
-                        width: "calc(100% - 40px)",
-                        borderRadius: "10px",
-                        margin: "10px",
-                        padding: "10px",
-                        backgroundColor: "#FFC8DD",
-                    }}
-                />
-            })}
         </div>
     </Container>
 }

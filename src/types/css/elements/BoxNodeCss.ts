@@ -1,6 +1,6 @@
 export type BoxNodeCss = {
-    height?: number | "match_parent";
-    width?: number | "match_parent";
+    height?: number ;
+    width?: number ;
     background_color?: string;
     border_radius?: number;
 }

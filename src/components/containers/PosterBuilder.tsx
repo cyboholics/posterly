@@ -10,12 +10,12 @@ export const PosterBuilder = () => {
         justifyContent="space-between"
     >
         <ElementSidebar/>
-        {/*<Container*/}
-        {/*    flexDirection="column"*/}
-        {/*    width="40%"*/}
-        {/*>*/}
-        {/*    <Poster/>*/}
-        {/*</Container>*/}
+        <Container
+            flexDirection="column"
+            width="40%"
+        >
+            <Poster/>
+        </Container>
         <CssSidebar/>
     </Container>
 }

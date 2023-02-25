@@ -1,19 +1,20 @@
 import {BoxNode} from "@/types/nodes/elements/BoxNode";
 import {ImageNode} from "@/types/nodes/elements/ImageNode";
 import {TextNode} from "@/types/nodes/elements/TextNode";
+import {Node} from "@/types/nodes/Node";
 
 export const elements = [{
-        type: BoxNode,
         title: "Box or Filler",
-        description: "A simple box to represent colors."
+        description: "A simple box to represent colors.",
+        type: BoxNode
     },
     {
-        type: ImageNode,
         title: "Image",
-        description: "Place Images in all shapes and sizes"
+        description: "Place Images in all shapes and sizes",
+        type: ImageNode
     },
     {
-        type: TextNode,
         title: "TextBox",
-        description: "Place you text here."
+        description: "Place you text here.",
+        type: TextNode
     }]
