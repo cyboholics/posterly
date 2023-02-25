@@ -5,6 +5,8 @@ import {BoxNode} from "@/types/nodes/elements/BoxNode";
 import {SavePosterButton} from "@/components/base/SavePosterButton";
 import {TextNode} from "@/types/nodes/elements/TextNode";
 import {TextElement} from "@/components/elements/TextElement";
+import {ImageElement} from "@/components/elements/ImageElement";
+import {ImageNode} from "@/types/nodes/elements/ImageNode";
 
 export const Poster = () => {
     const {getAllNodes} = usePoster();
@@ -21,6 +23,8 @@ export const Poster = () => {
                         return <BoxElement key={node.id} id={node.id}/>
                     } else if( node instanceof TextNode) {
                         return <TextElement key={node.id} id={node.id}/>
+                    } else if (node instanceof ImageNode) {
+                        return <ImageElement key={node.id} id={node.id}/>
                     }
                 })
             }

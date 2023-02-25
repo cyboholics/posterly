@@ -11,7 +11,7 @@ export const BaseElement = ({id, children}: { id: string, children: ReactElement
         style={{
             position: "absolute",
             translate: "-50% -50%",
-            cursor: "pointer",
+            cursor: "grab",
             width: "max-content",
             height: "max-content",
             marginTop: `${node?.position.y_pos || 0}px`,
@@ -23,8 +23,8 @@ export const BaseElement = ({id, children}: { id: string, children: ReactElement
             selectNode(id)
         }}
         onDragStart={(e) => {
-            startPosition.x = e.clientX
-            startPosition.y = e.clientY
+            startPosition.x = e.clientX;
+            startPosition.y = e.clientY;
         }}
         onDragEnd={(e) => {
             const x_pos = (node?.position.x_pos || 0) + (e.clientX - startPosition.x)
@@ -32,12 +32,6 @@ export const BaseElement = ({id, children}: { id: string, children: ReactElement
             selectNode(id)
             let x_limit_extend = (node?.css.width || 100);
             let y_limit_extend = (node?.css.height || 100) ;
-            if(x_limit_extend === "match_parent"){
-                x_limit_extend = 400;
-            }
-            if(y_limit_extend === "match_parent"){
-                y_limit_extend = 400;
-            }
             x_limit_extend = x_limit_extend >> 1;
             y_limit_extend = y_limit_extend >> 1;
 

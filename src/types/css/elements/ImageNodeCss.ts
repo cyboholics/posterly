@@ -1,5 +1,5 @@
 export type ImageNodeCss = {
-    height?: number | "match_parent";
-    width?: number | "match_parent";
+    height?: number ;
+    width?: number ;
     border_radius?: number;
 }
