@@ -1,5 +1,7 @@
-export const ElementSidebarRow = ({title, description, styles}: { title: string, description: string, styles?: {} }) => {
-    return <div style={{
+export const ElementSidebarRow = ({title, description, styles, onClick}: { title: string, description: string, styles?: {}, onClick: ()=>{}}) => {
+    return <div
+        onClick={onClick}
+        style={{
         width: "100%",
         ...styles
     }}>
