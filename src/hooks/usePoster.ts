@@ -5,7 +5,7 @@ import {useSnackbar} from "@/hooks/useSnackbar";
 import {Position} from "@/types/css/Position";
 
 export const usePoster = () => {
-    const {poster, setPoster} = useContext(PosterContext);
+    const {poster, setPoster, selectedNodeId, setSelectedNodeId} = useContext(PosterContext);
     const {showErrorMessage} = useSnackbar();
     const getAllNodes = () => {
         return poster;
@@ -30,7 +30,7 @@ export const usePoster = () => {
         poster.splice(index, 1);
         setPoster([...poster]);
     }
-    const updateNode = (id: string, cssProps: any = null, position: Position = {} ) => {
+    const updateNode = (id: string, cssProps: any = null, position: Position = {}) => {
         if (!cssProps && !position) {
             throwError("No properties to update");
             return;
@@ -53,8 +53,18 @@ export const usePoster = () => {
         }
         setPoster([...poster]);
     }
+
+    const isSelected = (id: string) => {
+        return selectedNodeId === id;
+    }
+    const selectNode = (id: string) => {
+        setSelectedNodeId(id);
+    }
+    const unselectNode = () => {
+        setSelectedNodeId(null);
+    }
     const throwError = (message: string, severity: "error" | "warning" | "info" = "error") => {
         showErrorMessage(message);
     }
-    return {getAllNodes,getNodeById, insertElement, updateNode, deleteNode}
+    return {getAllNodes, getNodeById, insertElement, updateNode, deleteNode, isSelected, selectNode, unselectNode}
 }

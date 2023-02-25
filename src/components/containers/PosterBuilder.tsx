@@ -2,6 +2,7 @@ import {Poster} from "@/components/composite/Poster";
 import {ElementSidebar} from "@/components/composite/ElementSidebar";
 import {Container} from "@/components/base/Container";
 import {CssSidebar} from "@/components/composite/CssSidebar";
+import {usePoster} from "@/hooks/usePoster";
 
 export const PosterBuilder = () => {
     return <Container
