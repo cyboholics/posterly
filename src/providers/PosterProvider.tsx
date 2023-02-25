@@ -1,7 +1,6 @@
 import {createContext, useState, ReactElement} from "react";
 import {Node} from "@/types/nodes/Node";
 import {BoxNode} from "@/types/nodes/elements/BoxNode";
-import {BoxNodeCss} from "@/types/css/elements/BoxNodeCss";
 
 export const PosterContext = createContext<{
     poster: Node<any>[],

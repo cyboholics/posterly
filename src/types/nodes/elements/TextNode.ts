@@ -1,6 +1,6 @@
 import {Node} from "@/types/nodes/Node";
 import {TextNodeCss} from "@/types/css/elements/TextNodeCss";
-import {Position} from "@/types/css/elements/Position";
+import {Position} from "@/types/css/Position";
 
 export class TextNode extends Node<TextNodeCss>{
     text: string;
