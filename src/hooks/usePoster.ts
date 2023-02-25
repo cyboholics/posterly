@@ -97,8 +97,7 @@ export const usePoster = () => {
         deleteSelectedNode,
         isSelected,
         getPosterSize,
-        setPosterSize
-        isSelected,
+        setPosterSize,
         selectNode,
         unselectNode,
         getSelectedNode,
