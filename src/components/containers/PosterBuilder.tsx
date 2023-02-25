@@ -5,16 +5,16 @@ import {CssSidebar} from "@/components/composite/CssSidebar";
 
 export const PosterBuilder = () => {
     return <Container
-        height="100vh"
-        width="100vw"
+        flexDirection="row"
+        justifyContent="space-between"
     >
         <ElementSidebar/>
-        <Container
-            flexDirection="column"
-            width="40%"
-        >
-            <Poster/>
-        </Container>
+        {/*<Container*/}
+        {/*    flexDirection="column"*/}
+        {/*    width="40%"*/}
+        {/*>*/}
+        {/*    <Poster/>*/}
+        {/*</Container>*/}
         <CssSidebar/>
     </Container>
 }
