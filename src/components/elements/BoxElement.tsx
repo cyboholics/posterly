@@ -7,7 +7,9 @@ export const BoxElement = ({id}: { id: string }) => {
     return (
         <div style={{
             position: "absolute",
-            top: `${node.position.x_pos || 0}px`,
+            marginTop: `${node.position.y_pos || 0}px`,
+            marginLeft: `${node.position.x_pos || 0}px`,
+            translate: "-50% -50%",
             width: `${node.css.width || 100}px`,
             height: `${node.css.height || 100}px`,
             backgroundColor: "blue",
