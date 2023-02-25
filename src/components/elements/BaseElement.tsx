@@ -1,11 +1,13 @@
 import {usePoster} from "@/hooks/usePoster";
 import {ReactElement} from "react";
 import {BoxNode} from "@/types/nodes/elements/BoxNode";
+import {posterSizeFromName} from "@/providers/PosterProvider";
 
 export const BaseElement = ({id, children}: { id: string, children: ReactElement }) => {
-    const {getNodeById, isSelected, selectNode, updateNode} = usePoster();
+    const {getNodeById, isSelected, selectNode, updateNode, getPosterSize} = usePoster();
     const node = getNodeById(id) as BoxNode;
     const startPosition = {x: 0, y: 0}
+    const posterSize = posterSizeFromName[getPosterSize()];
     return <div
         draggable={true}
         style={{
@@ -37,8 +39,8 @@ export const BaseElement = ({id, children}: { id: string, children: ReactElement
 
             if(x_pos < - x_limit_extend) return
             if(y_pos < - y_limit_extend) return
-            if(x_pos > 400 + x_limit_extend) return
-            if(y_pos > 400 + y_limit_extend) return
+            if(x_pos > posterSize.width + x_limit_extend) return
+            if(y_pos > posterSize.height + y_limit_extend) return
             updateNode(id, node?.css || {}, {x_pos, y_pos})
         }}
     >

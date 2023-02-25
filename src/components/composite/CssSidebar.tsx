@@ -13,6 +13,7 @@ export const CssSidebar = () => {
             border: "2px solid #FFAFCC",
             margin: "10px",
             maxWidth: "350px",
+            zIndex: 2,
         }}
     >
         <div style={{

@@ -1,11 +1,11 @@
 import {useContext} from "react";
-import {PosterContext} from "@/providers/PosterProvider";
+import {PosterContext, SizeName} from "@/providers/PosterProvider";
 import {Node} from "@/types/nodes/Node";
 import {useSnackbar} from "@/hooks/useSnackbar";
 import {Position} from "@/types/css/Position";
 
 export const usePoster = () => {
-    const {poster, setPoster, selectedNodeId, setSelectedNodeId} = useContext(PosterContext);
+    const {poster, setPoster, selectedNodeId, setSelectedNodeId, posterSize, setPosterSize} = useContext(PosterContext);
     const {showErrorMessage} = useSnackbar();
     const getAllNodes = () => {
         return poster;
@@ -63,8 +63,24 @@ export const usePoster = () => {
     const unselectNode = () => {
         setSelectedNodeId(null);
     }
+
+    const getPosterSize = () => {
+        return posterSize;
+    }
+
     const throwError = (message: string, severity: "error" | "warning" | "info" = "error") => {
         showErrorMessage(message);
     }
-    return {getAllNodes, getNodeById, insertElement, updateNode, deleteNode, isSelected, selectNode, unselectNode}
+    return {
+        getAllNodes,
+        getNodeById,
+        insertElement,
+        updateNode,
+        deleteNode,
+        isSelected,
+        selectNode,
+        unselectNode,
+        getPosterSize,
+        setPosterSize
+    }
 }

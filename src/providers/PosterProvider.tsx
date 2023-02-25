@@ -2,13 +2,33 @@ import {createContext, useState, ReactElement} from "react";
 import {Node} from "@/types/nodes/Node";
 import {BoxNode} from "@/types/nodes/elements/BoxNode";
 
+export const size_names = ["small", "medium", "large"]
+export type SizeName = typeof size_names[number]
+
+export type PosterSize = {
+    width: number,
+    height: number
+}
+
+export const posterSizeFromName: {
+    [key: SizeName]: PosterSize
+} = {
+    small: {width: 400, height: 400},
+    medium: {width: 500, height: 375},
+    large: {width: 640, height: 360}
+}
+
 export const PosterContext = createContext<{
     poster: Node<any>[],
     selectedNodeId: string | null,
-    setPoster: ((poster: Node<any>[]) => void)
+    posterSize: SizeName,
+    setPoster: ((poster: Node<any>[]) => void),
     setSelectedNodeId: ((selectedNodeId: string | null) => void)
+    setPosterSize: ((posterSize: SizeName) => void)
 }>({
-    poster: [], setPoster: () => {}, selectedNodeId: null, setSelectedNodeId: () => {}
+    poster: [], setPoster: () => {},
+    selectedNodeId: null, setSelectedNodeId: () => {},
+    posterSize: "small", setPosterSize: () => {}
 })
 
 const PosterProvider = ({children}: { children: ReactElement }) => {
@@ -19,8 +39,13 @@ const PosterProvider = ({children}: { children: ReactElement }) => {
         new BoxNode({x_pos: 90, y_pos:90}, {background_color: "yellow"})
     ])
     const [selectedNodeId, setSelectedNodeId] = useState<string | null>(null)
+    const [posterSize, setPosterSize] = useState<SizeName>("small")
     return (
-        <PosterContext.Provider value={{poster, selectedNodeId, setPoster, setSelectedNodeId}}>
+        <PosterContext.Provider value={{
+            poster, selectedNodeId,
+            setPoster, setSelectedNodeId,
+            posterSize, setPosterSize
+        }}>
             {children}
         </PosterContext.Provider>
     )

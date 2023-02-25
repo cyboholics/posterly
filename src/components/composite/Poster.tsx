@@ -2,19 +2,20 @@ import React from "react";
 import {usePoster} from "@/hooks/usePoster";
 import {BoxElement} from "@/components/elements/BoxElement";
 import {BoxNode} from "@/types/nodes/elements/BoxNode";
-import {SavePosterButton} from "@/components/base/SavePosterButton";
 import {TextNode} from "@/types/nodes/elements/TextNode";
 import {TextElement} from "@/components/elements/TextElement";
 import {ImageElement} from "@/components/elements/ImageElement";
 import {ImageNode} from "@/types/nodes/elements/ImageNode";
+import {posterSizeFromName} from "@/providers/PosterProvider";
 
 export const Poster = () => {
-    const {getAllNodes} = usePoster();
+    const {getAllNodes, getPosterSize} = usePoster();
+    const {width, height} = posterSizeFromName[getPosterSize()];
     const nodes = getAllNodes();
     return <>
         <div id="poster" style={{
-            width: "400px",
-            height: "400px",
+            width: `${width}px`,
+            height: `${height}px`,
             backgroundColor: "cyan"
         }}>
             {
@@ -29,6 +30,5 @@ export const Poster = () => {
                 })
             }
         </div>
-        <SavePosterButton/>
     </>
 }
