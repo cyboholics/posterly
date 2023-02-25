@@ -13,16 +13,19 @@ export const Poster = () => {
     const {width, height} = posterSizeFromName[getPosterSize()];
     const nodes = getAllNodes();
     return <>
-        <div id="poster" style={{
-            width: `${width}px`,
-            height: `${height}px`,
-            backgroundColor: "cyan"
-        }}>
+        <div
+            id="poster"
+            style={{
+                width: `${width}px`,
+                height: `${height}px`,
+                backgroundColor: "cyan"
+            }}
+        >
             {
                 nodes.map(node => {
                     if (node instanceof BoxNode) {
                         return <BoxElement key={node.id} id={node.id}/>
-                    } else if( node instanceof TextNode) {
+                    } else if (node instanceof TextNode) {
                         return <TextElement key={node.id} id={node.id}/>
                     } else if (node instanceof ImageNode) {
                         return <ImageElement key={node.id} id={node.id}/>

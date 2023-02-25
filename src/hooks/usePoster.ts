@@ -30,6 +30,13 @@ export const usePoster = () => {
         poster.splice(index, 1);
         setPoster([...poster]);
     }
+
+    const deleteSelectedNode = () => {
+        if (selectedNodeId) {
+            deleteNode(selectedNodeId);
+            unselectNode();
+        }
+    }
     const updateNode = (id: string, cssProps: any = null, position: Position = {}) => {
         if (!cssProps && !position) {
             throwError("No properties to update");
@@ -77,6 +84,7 @@ export const usePoster = () => {
         insertElement,
         updateNode,
         deleteNode,
+        deleteSelectedNode,
         isSelected,
         selectNode,
         unselectNode,

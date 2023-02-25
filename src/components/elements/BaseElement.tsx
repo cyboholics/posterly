@@ -10,6 +10,7 @@ export const BaseElement = ({id, children}: { id: string, children: ReactElement
     const posterSize = posterSizeFromName[getPosterSize()];
     return <div
         draggable={true}
+        onClick={()=>selectNode(id)}
         style={{
             position: "absolute",
             translate: "-50% -50%",
@@ -20,9 +21,6 @@ export const BaseElement = ({id, children}: { id: string, children: ReactElement
             marginLeft: `${node?.position.x_pos || 0}px`,
             border: isSelected(id) ? "2px solid red" : "none",
             zIndex: isSelected(id) ? 1 : 0
-        }}
-        onClick={() => {
-            selectNode(id)
         }}
         onDragStart={(e) => {
             startPosition.x = e.clientX;
