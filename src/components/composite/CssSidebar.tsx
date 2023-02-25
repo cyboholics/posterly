@@ -25,18 +25,7 @@ export const CssSidebar = () => {
         </div>
         <div style={{width: "100%"}}>
             {elements.map((element, index) => {
-                return <ElementSidebarRow
-                    key={index}
-                    title={element.title}
-                    description={element.description}
-                    styles={{
-                        width: "calc(100% - 40px)",
-                        borderRadius: "10px",
-                        margin: "10px",
-                        padding: "10px",
-                        backgroundColor: "#FFC8DD",
-                    }}
-                />
+                return <></>
             })}
         </div>
     </Container>

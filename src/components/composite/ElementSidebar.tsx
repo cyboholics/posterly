@@ -1,5 +1,5 @@
 import {Container} from "@/components/base/Container";
-import {elements} from "@/types/nodes/elements/index";
+import {elements} from "@/types/nodes/elements";
 import {ElementSidebarRow} from "@/components/base/SidebarRow/ElementSidebarRow";
 
 export const ElementSidebar = () => {
@@ -25,10 +25,12 @@ export const ElementSidebar = () => {
         </div>
         <div style={{width: "100%"}}>
             {elements.map((element, index) => {
+                // @ts-ignore
                 return <ElementSidebarRow
                     key={index}
                     title={element.title}
                     description={element.description}
+                    builder={element.type.build}
                     styles={{
                         width: "calc(100% - 40px)",
                         borderRadius: "10px",
