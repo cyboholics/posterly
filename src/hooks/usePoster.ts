@@ -60,12 +60,22 @@ export const usePoster = () => {
         }
         setPoster([...poster]);
     }
+    const reRenderState = () => {
+        setPoster([...poster])
+    }
 
     const isSelected = (id: string) => {
         return selectedNodeId === id;
     }
     const selectNode = (id: string) => {
         setSelectedNodeId(id);
+    }
+    const getSelectedNode = () => {
+        if(!selectedNodeId) return null
+        return getNodeById(selectedNodeId);
+    }
+    const getSelectedNodeId = () => {
+        return selectedNodeId
     }
     const unselectNode = () => {
         setSelectedNodeId(null);
@@ -86,9 +96,13 @@ export const usePoster = () => {
         deleteNode,
         deleteSelectedNode,
         isSelected,
-        selectNode,
-        unselectNode,
         getPosterSize,
         setPosterSize
+        isSelected,
+        selectNode,
+        unselectNode,
+        getSelectedNode,
+        getSelectedNodeId,
+        reRenderState
     }
 }

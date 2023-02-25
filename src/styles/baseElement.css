@@ -1,0 +1,6 @@
+.draggingIconContainer:active{
+    cursor: grabbing;
+}
+.draggingIconContainer:hover{
+    cursor: grab;
+}

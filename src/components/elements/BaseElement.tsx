@@ -9,12 +9,12 @@ export const BaseElement = ({id, children}: { id: string, children: ReactElement
     const startPosition = {x: 0, y: 0}
     const posterSize = posterSizeFromName[getPosterSize()];
     return <div
+        className={"draggingIconContainer"}
         draggable={true}
         onClick={()=>selectNode(id)}
         style={{
             position: "absolute",
             translate: "-50% -50%",
-            cursor: "grab",
             width: "max-content",
             height: "max-content",
             marginTop: `${node?.position.y_pos || 0}px`,
