@@ -1,6 +1,6 @@
 import {Node} from "@/types/nodes/Node";
 import {ImageNodeCss} from "@/types/css/elements/ImageNodeCss";
-import {Position} from "@/types/css/elements/Position";
+import {Position} from "@/types/css/Position";
 
 export class ImageNode extends Node<ImageNodeCss>{
     src: string;

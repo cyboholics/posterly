@@ -12,7 +12,6 @@ export type ContainerProps = {
 }
 
 export const Container = (props: ContainerProps) => {
-    console.log(props.alignItems)
     return <div style={{
             display: props.display || "flex",
             flexDirection: props.flexDirection || "row",

@@ -5,5 +5,7 @@ export const ElementSidebar = () => {
         width="30%"
         height="100%"
         style={{backgroundColor: "teal"}}
-    ></Container>
+    >
+        <h1>Elements</h1>
+    </Container>
 }

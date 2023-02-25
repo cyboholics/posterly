@@ -6,5 +6,6 @@ export const CssSidebar = () => {
         height="100%"
         style={{backgroundColor: "pink"}}
     >
+        <h1>Styles</h1>
     </Container>
 }

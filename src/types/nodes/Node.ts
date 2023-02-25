@@ -1,8 +1,8 @@
-import {randomUUID} from "crypto";
-import {Position} from "@/types/css/elements/Position";
+import crypto from "crypto";
+import {Position} from "@/types/css/Position";
 
 export class Node<T> {
-    id: string = randomUUID();
+    id: string = crypto.randomBytes(32).toString("hex");
     position: Position;
     css: T;
     constructor(position: Position, css: T) {

@@ -1,9 +1,16 @@
 import {Node} from "@/types/nodes/Node";
 import {BoxNodeCss} from "@/types/css/elements/BoxNodeCss";
-import {Position} from "@/types/css/elements/Position";
+import {Position} from "@/types/css/Position";
+
+const defaultCss: BoxNodeCss = {
+    width: 100,
+    height: 100,
+    background_color: "blue",
+    border_radius: 0
+}
 
 export class BoxNode extends Node<BoxNodeCss>{
-    constructor(position: Position = {x_pos:0, y_pos:0}, css: BoxNodeCss =  new BoxNodeCss()) {
+    constructor(position: Position = {x_pos:0, y_pos:0}, css: BoxNodeCss =  defaultCss) {
         super(position, css);
     }
 }
