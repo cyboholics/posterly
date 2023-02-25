@@ -4,10 +4,11 @@ import {BoxNode} from "@/types/nodes/elements/BoxNode";
 
 export const PosterContext = createContext<{
     poster: Node<any>[],
+    selectedNodeId: string | null,
     setPoster: ((poster: Node<any>[]) => void)
+    setSelectedNodeId: ((selectedNodeId: string | null) => void)
 }>({
-    poster: [], setPoster: () => {
-    }
+    poster: [], setPoster: () => {}, selectedNodeId: null, setSelectedNodeId: () => {}
 })
 
 const PosterProvider = ({children}: { children: ReactElement }) => {
@@ -17,9 +18,9 @@ const PosterProvider = ({children}: { children: ReactElement }) => {
         new BoxNode({x_pos: 10, y_pos:90}),
         new BoxNode({x_pos: 90, y_pos:90})
     ])
-    const [selectedNode, setSelectedNode] = useState<Node<any> | null>(null)
+    const [selectedNodeId, setSelectedNodeId] = useState<string | null>(null)
     return (
-        <PosterContext.Provider value={{poster, setPoster}}>
+        <PosterContext.Provider value={{poster, selectedNodeId, setPoster, setSelectedNodeId}}>
             {children}
         </PosterContext.Provider>
     )

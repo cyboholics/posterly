@@ -2,7 +2,7 @@ import {usePoster} from "@/hooks/usePoster";
 import {BoxNode} from "@/types/nodes/elements/BoxNode";
 
 export const BoxElement = ({id}: { id: string }) => {
-    const {getNodeById} = usePoster();
+    const {getNodeById, isSelected, selectNode} = usePoster();
     const node = getNodeById(id) as BoxNode;
     return (
         <div style={{
@@ -13,6 +13,11 @@ export const BoxElement = ({id}: { id: string }) => {
             width: `${node.css.width || 100}px`,
             height: `${node.css.height || 100}px`,
             backgroundColor: "blue",
-        }} />
+            border: isSelected(id) ? "2px solid red" : "none",
+            cursor: "pointer",
+            zIndex: isSelected(id) ? 1 : 0
+        }} onClick={() => {
+            selectNode(id)
+        }}/>
     )
 }

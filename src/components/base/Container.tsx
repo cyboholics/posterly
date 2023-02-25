@@ -8,19 +8,24 @@ export type ContainerProps = {
     alignItems?: "stretch" | "flex-start" | "flex-end" | "center" | "baseline" | "first baseline" | "last baseline" | "start" | "end" | "self-start" | "self-end",
     height?: string,
     width?: string,
-    style?: any
+    style?: any,
+    onClick?: () => void
 }
 
 export const Container = (props: ContainerProps) => {
-    return <div style={{
+    return <div
+        style={{
             display: props.display || "flex",
             flexDirection: props.flexDirection || "row",
             justifyContent: props.justifyContent || "center",
             alignItems: props.alignItems || "center",
             height: props.height || "100%",
             width: props.width || "100%",
+            cursor: props.onClick ? "pointer" : "default",
             ...props.style
-        }}>
-            {props.children}
-        </div>
+        }}
+        onClick={props.onClick}
+    >
+        {props.children}
+    </div>
 }
