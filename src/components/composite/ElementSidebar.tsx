@@ -1,6 +1,7 @@
 import {Container} from "@/components/base/Container";
 import {elements} from "@/types/nodes/elements";
 import {ElementSidebarRow} from "@/components/base/SidebarRow/ElementSidebarRow";
+import {PosterSizeChooser} from "@/components/composite/PosterSizeChooser";
 
 export const ElementSidebar = () => {
     return <Container
@@ -15,6 +16,7 @@ export const ElementSidebar = () => {
             border: "2px solid #A2D2FF",
             margin: "10px",
             maxWidth: "350px",
+            zIndex: 2,
         }}
     >
         <div style={{
@@ -41,5 +43,6 @@ export const ElementSidebar = () => {
                 />
             })}
         </div>
+        <PosterSizeChooser/>
     </Container>
 }

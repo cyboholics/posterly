@@ -1,14 +1,17 @@
 import {usePoster} from "@/hooks/usePoster";
 import {ReactElement} from "react";
 import {BoxNode} from "@/types/nodes/elements/BoxNode";
+import {posterSizeFromName} from "@/providers/PosterProvider";
 
 export const BaseElement = ({id, children}: { id: string, children: ReactElement }) => {
-    const {getNodeById, isSelected, selectNode, updateNode} = usePoster();
+    const {getNodeById, isSelected, selectNode, updateNode, getPosterSize} = usePoster();
     const node = getNodeById(id) as BoxNode;
     const startPosition = {x: 0, y: 0}
+    const posterSize = posterSizeFromName[getPosterSize()];
     return <div
         className={"draggingIconContainer"}
         draggable={true}
+        onClick={()=>selectNode(id)}
         style={{
             position: "absolute",
             translate: "-50% -50%",
@@ -18,9 +21,6 @@ export const BaseElement = ({id, children}: { id: string, children: ReactElement
             marginLeft: `${node?.position.x_pos || 0}px`,
             border: isSelected(id) ? "2px solid red" : "none",
             zIndex: isSelected(id) ? 1 : 0
-        }}
-        onClick={() => {
-            selectNode(id)
         }}
         onDragStart={(e) => {
             startPosition.x = e.clientX;
@@ -37,8 +37,8 @@ export const BaseElement = ({id, children}: { id: string, children: ReactElement
 
             if(x_pos < - x_limit_extend) return
             if(y_pos < - y_limit_extend) return
-            if(x_pos > 400 + x_limit_extend) return
-            if(y_pos > 400 + y_limit_extend) return
+            if(x_pos > posterSize.width + x_limit_extend) return
+            if(y_pos > posterSize.height + y_limit_extend) return
             updateNode(id, node?.css || {}, {x_pos, y_pos})
         }}
     >
