@@ -18,6 +18,10 @@ export class BoxNode extends Node<BoxNodeCss> {
         Object.setPrototypeOf(this, BoxNode.prototype);
     }
 
+    copy(newPosition:Position): BoxNode {
+        return new BoxNode(newPosition || this.position, this.css);
+    }
+
     static build(): BoxNode {
         return new BoxNode();
     }

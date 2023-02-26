@@ -14,6 +14,8 @@ export abstract class Node<T> {
         Object.setPrototypeOf(this, Node.prototype);
     }
 
+    abstract copy(newPosition?: Position): Node<T>
+
     static build(): any {
         return null;
     }
