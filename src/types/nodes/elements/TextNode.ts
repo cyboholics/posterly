@@ -14,11 +14,15 @@ export class TextNode extends Node<TextNodeCss> {
     text: string;
     hyperlink?: string;
     component = TextElement
-    constructor(position: Position = {x_pos:0, y_pos:0, rotation: 0}, text: string = "Hello World", hyperlink?: string, css: TextNodeCss = defaultCss){
+    constructor(position: Position = {x_pos:0, y_pos:0, rotation: 0}, css: TextNodeCss = defaultCss, text: string = "Hello World", hyperlink?: string){
         super(position, {...defaultCss, ...css});
         this.text = text;
         this.hyperlink = hyperlink
         Object.setPrototypeOf(this, TextNode.prototype);
+    }
+
+    copy(newPosition?: Position): TextNode {
+        return new TextNode(newPosition || this.position, this.css, this.text, this.hyperlink);
     }
 
     static build(): TextNode {
