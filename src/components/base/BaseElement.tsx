@@ -2,7 +2,7 @@ import {usePoster} from "@/hooks/usePoster";
 import {ReactElement} from "react"
 
 export const BaseElement = ({id, children}: { id: string, children: ReactElement }) => {
-    const {getNodeById, isSelected, selectNode, updateNode, isOutOfRange, insertElement, deleteSelectedNode, unselectNode} = usePoster();
+    const {getNodeById, isSelected, selectNode, updateNode, isOutOfRange, insertElement} = usePoster();
     const node = getNodeById(id);
     const startPosition = {x: 0, y: 0}
     if (!node) return null;
