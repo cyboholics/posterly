@@ -10,12 +10,13 @@ export const PosterSizeChooser = () => {
         margin: "10px"
     }}>
         <label style={{marginRight: "40px"}}>Poster size</label>
-        <select value={posterSize} onChange={(event)=>{
+        <select value={posterSize} onChange={(event) => {
             setPosterSize(event.target.value as SizeName)
         }}>
             {
                 size_names.map((size_name: SizeName, index) => {
-                    return <option key={index} value={size_name}>{posterSizeFromName[size_name].width} x {posterSizeFromName[size_name].height}</option>
+                    return <option key={index}
+                                   value={size_name}>{posterSizeFromName[size_name].width} x {posterSizeFromName[size_name].height}</option>
                 })
             }
         </select>

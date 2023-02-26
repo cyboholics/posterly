@@ -18,9 +18,10 @@ export const CssSidebar = () => {
                     node.css[property] = (event.target.value)
                     reRenderState()
                 }}
-                onKeyDownCapture={(event)=>{if(event.key==='Enter'){
-                    event.currentTarget.blur()
-                }
+                onKeyDownCapture={(event) => {
+                    if (event.key === 'Enter') {
+                        event.currentTarget.blur()
+                    }
                 }}
             />
         </div>

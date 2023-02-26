@@ -1,7 +1,6 @@
 import {Node} from "@/types/nodes/Node";
 import {ImageNodeCss} from "@/types/css/elements/ImageNodeCss";
 import {Position} from "@/types/css/Position";
-import {ReactElement} from "react";
 import {ImageElement} from "@/components/elements/ImageElement";
 
 const defaultCss: ImageNodeCss = {
@@ -10,9 +9,11 @@ const defaultCss: ImageNodeCss = {
     border_radius: 0
 }
 
-export class ImageNode extends Node<ImageNodeCss>{
+export class ImageNode extends Node<ImageNodeCss> {
     src: string;
-    constructor(position: Position = {x_pos:0, y_pos:0}, src: string = "/next.svg", css: ImageNodeCss = defaultCss){
+    component = ImageElement
+
+    constructor(position: Position = {x_pos: 0, y_pos: 0}, src: string = "/next.svg", css: ImageNodeCss = defaultCss) {
         super(position, {...defaultCss, ...css});
         this.src = src;
 
@@ -22,6 +23,4 @@ export class ImageNode extends Node<ImageNodeCss>{
     static build(): ImageNode {
         return new ImageNode();
     }
-
-    component = ImageElement
 }

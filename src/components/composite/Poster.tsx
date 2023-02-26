@@ -17,7 +17,7 @@ export const Poster = () => {
         >
             {
                 nodes.map(node => {
-                    return <node.component id={node.id} key={node.id} />
+                    return <node.component id={node.id} key={node.id}/>
                 })
             }
         </div>

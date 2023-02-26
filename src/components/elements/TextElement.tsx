@@ -15,17 +15,17 @@ export const TextElement = ({id}: { id: string }) => {
                 textDecoration: node.css.decoration?.join(" ") || "none",
                 fontFamily: node.css.font || "sans-serif"
             }}
-                onDoubleClick={() => {
-                    if(!paragraphElement?.current) return;
-                    paragraphElement.current.contentEditable = "true";
-                    paragraphElement.current.focus();
-                }}
-                onBlur={() => {
-                    if(!paragraphElement?.current) return;
-                    paragraphElement.current.contentEditable = "false";
-                    node.text = paragraphElement.current.innerText;
-                    reRenderState();
-                }}
+               onDoubleClick={() => {
+                   if (!paragraphElement?.current) return;
+                   paragraphElement.current.contentEditable = "true";
+                   paragraphElement.current.focus();
+               }}
+               onBlur={() => {
+                   if (!paragraphElement?.current) return;
+                   paragraphElement.current.contentEditable = "false";
+                   node.text = paragraphElement.current.innerText;
+                   reRenderState();
+               }}
             >
                 {node.text || "Hello world"}
             </p>

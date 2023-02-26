@@ -19,7 +19,7 @@ export const ImageElement = ({id}: { id: string }) => {
                     fileUpload.accept = "image/*";
                     fileUpload.onchange = (e) => {
                         const file = (e.target as HTMLInputElement).files?.[0];
-                        if(!file) return;
+                        if (!file) return;
                         const reader = new FileReader();
                         reader.onload = (e) => {
                             node.src = e.target?.result as string;
