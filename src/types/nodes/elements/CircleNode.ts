@@ -16,7 +16,7 @@ export class CircleNode extends Node<CircleNodeCss> {
         Object.setPrototypeOf(this, CircleNode.prototype);
     }
 
-    copy(newPosition:Position): CircleNode {
+    copy(newPosition?:Position): CircleNode {
         return new CircleNode(newPosition || this.position, this.css);
     }
 

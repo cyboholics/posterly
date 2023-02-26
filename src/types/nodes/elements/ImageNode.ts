@@ -18,7 +18,7 @@ export class ImageNode extends Node<ImageNodeCss> {
         Object.setPrototypeOf(this, ImageNode.prototype);
     }
 
-    copy(newPosition:Position): ImageNode {
+    copy(newPosition?:Position): ImageNode {
         return new ImageNode(newPosition || this.position, this.css, this.src);
     }
 
