@@ -10,7 +10,7 @@ const defaultCss: BoxNodeCss = {
 }
 
 export class BoxNode extends Node<BoxNodeCss>{
-    constructor(position: Position = {x_pos:0, y_pos:0}, css: BoxNodeCss = defaultCss) {
+    constructor(position: Position = {x_pos:0, y_pos:0, rotation: 0}, css: BoxNodeCss = defaultCss) {
         super(position, {...defaultCss, ...css});
         Object.setPrototypeOf(this, BoxNode.prototype);
     }

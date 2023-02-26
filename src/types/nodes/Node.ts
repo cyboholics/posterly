@@ -11,7 +11,6 @@ export abstract class Node<T> {
     protected constructor(position: Position, css: T) {
         this.position = position;
         this.css = css;
-
         Object.setPrototypeOf(this, Node.prototype);
     }
 }
