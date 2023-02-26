@@ -1,5 +1,5 @@
 import {usePoster} from "@/hooks/usePoster";
-import {BaseElement} from "@/components/elements/BaseElement";
+import {BaseElement} from "@/components/base/BaseElement";
 import {ImageNode} from "@/types/nodes/elements/ImageNode";
 import Image from "next/image";
 
@@ -29,6 +29,7 @@ export const ImageElement = ({id}: { id: string }) => {
                     }
                     fileUpload.click();
                 }}
+                style={{borderRadius: node.css.borderRadius}}
             />
         </BaseElement>
     )

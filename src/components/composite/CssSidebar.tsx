@@ -60,6 +60,10 @@ export const CssSidebar = () => {
             margin: "10px",
             maxWidth: "350px",
             zIndex: 2,
+            cursor: "default"
+        }}
+        onClick={(event:React.MouseEvent) => {
+            event.stopPropagation();
         }}
     >
         <div style={{width: "eval(100% - 30px)", height: "60px"}}>

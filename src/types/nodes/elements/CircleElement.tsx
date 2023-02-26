@@ -1,6 +1,6 @@
 import {usePoster} from "@/hooks/usePoster";
 import {CircleNode} from "@/types/nodes/elements/CircleNode";
-import {BaseElement} from "@/components/elements/BaseElement";
+import {BaseElement} from "@/components/base/BaseElement";
 
 export const CircleElement = ({id}: { id: string }) => {
     const {getNodeById} = usePoster();
@@ -10,7 +10,7 @@ export const CircleElement = ({id}: { id: string }) => {
             <div style={{
                 width: `${node.css.radius || 100}px`,
                 height: `${node.css.radius || 100}px`,
-                backgroundColor: node.css.background_color || "blue",
+                backgroundColor: node.css.backgroundColor || "blue",
                 borderRadius: `50%`,
             }}/>
         </BaseElement>

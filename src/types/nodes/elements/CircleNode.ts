@@ -1,10 +1,15 @@
 import {Node} from "@/types/nodes/Node";
 import {Position} from "@/types/css/Position";
-import {CircleNodeCss} from "@/types/css/elements/CIrcleCss";
-import {CircleElement} from "@/components/elements/CircleElement";
+import {CircleElement} from "@/types/nodes/elements/CircleElement";
+import {Color, Pixel} from "@/types/css/Properties";
+
+export type CircleNodeCss = {
+    radius?: Pixel;
+    backgroundColor?: Color;
+}
 
 const defaultCss: CircleNodeCss = {
-    background_color: "blue",
+    backgroundColor: "blue",
     radius: 100
 }
 
@@ -16,7 +21,7 @@ export class CircleNode extends Node<CircleNodeCss> {
         Object.setPrototypeOf(this, CircleNode.prototype);
     }
 
-    copy(newPosition?:Position): CircleNode {
+    copy(newPosition?: Position): CircleNode {
         return new CircleNode(newPosition || this.position, this.css);
     }
 
