@@ -20,7 +20,7 @@ export const ElementSidebar = () => {
         }}
     >
         <div style={{
-            width:"eval(100% - 30px)",
+            width: "eval(100% - 30px)",
             height: "60px",
         }}>
             <h1 style={{margin: "15px", textAlign: "center"}}>Element</h1>
