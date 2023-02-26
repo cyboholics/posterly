@@ -7,20 +7,21 @@ export const CssSidebar = () => {
     const {getSelectedNode, reRenderState} = usePoster();
     const selectedNode = getSelectedNode();
 
-    const NodeStylingRow = ({cssProperty, node}: { cssProperty: any, node: Node<any> }) => {
+    const NodeStylingRow = ({property, node}: { property: any, node: Node<any> }) => {
         return <div>
-            <h5>{cssProperty}</h5>
+            <h5>{property}</h5>
             <label>Value</label>
             <input
                 type={"text"}
-                defaultValue={node.css[cssProperty]}
+                defaultValue={node.css[property]}
                 onBlur={(event) => {
-                    node.css[cssProperty] = (event.target.value)
+                    node.css[property] = (event.target.value)
                     reRenderState()
                 }}
-                onKeyDownCapture={(event)=>{if(event.key==='Enter'){
-                    event.currentTarget.blur()
-                }
+                onKeyDownCapture={(event) => {
+                    if (event.key === 'Enter') {
+                        event.currentTarget.blur()
+                    }
                 }}
             />
         </div>
@@ -28,8 +29,11 @@ export const CssSidebar = () => {
 
     const NodeStyling = ({node}: { node: Node<any> }) => {
         return <div>
+            {(Object.keys(node.position).map((positionProperty, index) => {
+                return <NodeStylingRow key={index} property={positionProperty} node={node}/>
+            }))}
             {(Object.keys(node.css)).map((cssProperty, index) => {
-                return <NodeStylingRow key={index} cssProperty={cssProperty} node={node}/>
+                return <NodeStylingRow key={index} property={cssProperty} node={node}/>
             })}
         </div>
     }

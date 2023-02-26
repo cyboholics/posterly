@@ -11,7 +11,7 @@ type ElementSidebarRowProps = {
 export const ElementSidebarRow = ({title, description, styles, builder}: ElementSidebarRowProps) => {
     const {insertElement} = usePoster();
     return <div
-        onClick={()=>{
+        onClick={() => {
             insertElement(builder())
         }}
         style={{

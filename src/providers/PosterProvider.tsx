@@ -1,4 +1,4 @@
-import {createContext, useState, ReactElement} from "react";
+import {createContext, ReactElement, useState} from "react";
 import {Node} from "@/types/nodes/Node";
 import {BoxNode} from "@/types/nodes/elements/BoxNode";
 
@@ -26,17 +26,20 @@ export const PosterContext = createContext<{
     setSelectedNodeId: ((selectedNodeId: string | null) => void)
     setPosterSize: ((posterSize: SizeName) => void)
 }>({
-    poster: [], setPoster: () => {},
-    selectedNodeId: null, setSelectedNodeId: () => {},
-    posterSize: "small", setPosterSize: () => {}
+    poster: [], setPoster: () => {
+    },
+    selectedNodeId: null, setSelectedNodeId: () => {
+    },
+    posterSize: "small", setPosterSize: () => {
+    }
 })
 
 const PosterProvider = ({children}: { children: ReactElement }) => {
     const [poster, setPoster] = useState<Node<any>[]>([
-        new BoxNode({x_pos: 10, y_pos:10}, {background_color: "red"}),
-        new BoxNode({x_pos: 90, y_pos:10}, {background_color: "green"}),
-        new BoxNode({x_pos: 10, y_pos:90}, {background_color: "blue"}),
-        new BoxNode({x_pos: 90, y_pos:90}, {background_color: "yellow"})
+        new BoxNode({x_pos: 10, y_pos: 10}, {background_color: "red"}),
+        new BoxNode({x_pos: 90, y_pos: 10}, {background_color: "green"}),
+        new BoxNode({x_pos: 10, y_pos: 90}, {background_color: "blue"}),
+        new BoxNode({x_pos: 90, y_pos: 90}, {background_color: "yellow"})
     ])
     const [selectedNodeId, setSelectedNodeId] = useState<string | null>(null)
     const [posterSize, setPosterSize] = useState<SizeName>("small")
