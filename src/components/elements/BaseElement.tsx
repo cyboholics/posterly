@@ -2,25 +2,28 @@ import {usePoster} from "@/hooks/usePoster";
 import {ReactElement} from "react"
 
 export const BaseElement = ({id, children}: { id: string, children: ReactElement }) => {
-    const {getNodeById, isSelected, selectNode, updateNode, isOutOfRange, insertElement} = usePoster();
+    const {getNodeById, isSelected, selectNode, updateNode, isOutOfRange, insertElement, deleteSelectedNode, unselectNode} = usePoster();
     const node = getNodeById(id);
     const startPosition = {x: 0, y: 0}
     if (!node) return null;
     let isDragWithCtrl = false;
     return <div
-        className={"draggingIconContainer"}
         draggable={true}
-        onClick={() => selectNode(id)}
+        onClick={(e) =>{
+            e.stopPropagation();
+            selectNode(id)
+        }}
         style={{
             position: "absolute",
             translate: "-50% -50%",
-            width: node?.css.width? `${node.css.width}px` : "max-content",
-            height: node?.css.height? `${node.css.height}px` : "max-content",
+            width: node?.css.width ? `${node.css.width}px` : "max-content",
+            height: node?.css.height ? `${node.css.height}px` : "max-content",
             marginTop: `${node?.position.y_pos || 0}px`,
             marginLeft: `${node?.position.x_pos || 0}px`,
             border: isSelected(id) ? "2px solid red" : "none",
             zIndex: isSelected(id) ? 1 : 0,
-            transform: `rotate(${node.position.rotation || 0}deg)`
+            transform: `rotate(${node.position.rotation || 0}deg)`,
+            cursor: "move",
         }}
         onDragStart={(e) => {
             isDragWithCtrl = e.ctrlKey

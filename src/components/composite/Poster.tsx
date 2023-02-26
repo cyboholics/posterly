@@ -6,9 +6,11 @@ export const Poster = () => {
     const {getAllNodes, getPosterSize} = usePoster();
     const {width, height} = posterSizeFromName[getPosterSize()];
     const nodes = getAllNodes();
-    return <>
-        <div
+    return <div
             id="poster"
+            onDragOver={(e) => {
+                e.preventDefault();
+            }}
             style={{
                 width: `${width}px`,
                 height: `${height}px`,
@@ -21,5 +23,4 @@ export const Poster = () => {
                 })
             }
         </div>
-    </>
 }

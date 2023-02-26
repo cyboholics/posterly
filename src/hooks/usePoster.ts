@@ -79,7 +79,6 @@ export const usePoster = () => {
     }
     const unselectNode = () => {
         setSelectedNodeId(null);
-
     }
 
     const getPosterSize = () => {

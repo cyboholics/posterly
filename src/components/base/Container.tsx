@@ -9,7 +9,7 @@ export type ContainerProps = {
     height?: string,
     width?: string,
     style?: any,
-    onClick?: () => void,
+    onClick?: (() => void) | ((e:React.MouseEvent) => void),
     onKeyDownCapture?: (e: React.KeyboardEvent) => void,
 }
 
@@ -27,7 +27,7 @@ export const Container = (props: ContainerProps) => {
             ...props.style
         }}
         onClick={props.onClick}
-        onKeyDownCapture={props.onKeyDownCapture}
+        onKeyDownCapture={props.onKeyDownCapture || undefined}
     >
         {props.children}
     </div>

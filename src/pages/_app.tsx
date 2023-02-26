@@ -1,5 +1,4 @@
 import '@/styles/globals.css'
-import "@/styles/baseElement.css"
 import type {AppProps} from 'next/app'
 import PosterProvider from "@/providers/PosterProvider";
 import {SnackbarProvider} from "@/providers/SnackbarProvider";
