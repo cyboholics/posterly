@@ -11,7 +11,7 @@ export const BoxElement = ({id}: { id: string }) => {
                 width: `${node.css.width || 100}px`,
                 height: `${node.css.height || 100}px`,
                 backgroundColor: node.css.background_color || "blue",
-                borderRadius: `${node.css.border_radius || 0}px`,
+                borderRadius: `${node.css.borderRadius || 0}px`,
             }}/>
         </BaseElement>
     )

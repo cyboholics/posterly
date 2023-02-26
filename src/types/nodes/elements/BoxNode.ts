@@ -7,7 +7,7 @@ const defaultCss: BoxNodeCss = {
     width: 100,
     height: 100,
     background_color: "blue",
-    border_radius: 0
+    borderRadius: 0
 }
 
 export class BoxNode extends Node<BoxNodeCss>{

@@ -6,7 +6,7 @@ import {ImageElement} from "@/components/elements/ImageElement";
 const defaultCss: ImageNodeCss = {
     width: 100,
     height: 100,
-    border_radius: 0
+    borderRadius: 0
 }
 
 export class ImageNode extends Node<ImageNodeCss> {

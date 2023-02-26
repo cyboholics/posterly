@@ -29,6 +29,7 @@ export const ImageElement = ({id}: { id: string }) => {
                     }
                     fileUpload.click();
                 }}
+                style={{borderRadius: node.css.borderRadius}}
             />
         </BaseElement>
     )

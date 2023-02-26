@@ -1,10 +1,10 @@
 import {Node} from "@/types/nodes/Node";
 import {Position} from "@/types/css/Position";
-import {CircleNodeCss} from "@/types/css/elements/CIrcleCss";
+import {CircleNodeCss} from "@/types/css/elements/CircleCss";
 import {CircleElement} from "@/components/elements/CircleElement";
 
 const defaultCss: CircleNodeCss = {
-    background_color: "blue",
+    backgroundColor: "blue",
     radius: 100
 }
 

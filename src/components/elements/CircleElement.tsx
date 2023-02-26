@@ -10,7 +10,7 @@ export const CircleElement = ({id}: { id: string }) => {
             <div style={{
                 width: `${node.css.radius || 100}px`,
                 height: `${node.css.radius || 100}px`,
-                backgroundColor: node.css.background_color || "blue",
+                backgroundColor: node.css.backgroundColor || "blue",
                 borderRadius: `50%`,
             }}/>
         </BaseElement>
