@@ -2,27 +2,34 @@ import {usePoster} from "@/hooks/usePoster";
 import {Node} from "@/types/nodes/Node";
 import {Container} from "@/components/base/Container";
 import React from "react";
+import {number} from "prop-types";
 
 export const CssSidebar = () => {
     const {getSelectedNode, reRenderState} = usePoster();
     const selectedNode = getSelectedNode();
 
     const NodeStylingRow = ({property, propertyType}: { property: any, propertyType: any}) => {
+        //TODO: Add a way to change the type of the input
+        const pTypeName = typeof (propertyType[property])
+        const inputType = propertyType[property] instanceof number?"number":"text"
         return <div>
             <h5>{property}</h5>
             <label>Value</label>
+            {/*TODO: Styling based on number*/}
             <input
-                type={"text"}
+                type={"number"}
                 defaultValue={propertyType[property]}
                 onBlur={(event) => {
-                    propertyType[property] = (event.target.value)
-                    console.log(propertyType)
+                    propertyType[property] = (pTypeName==="number"?Number(event.target.value):(event.target.value))
                     reRenderState()
                 }}
                 onKeyDownCapture={(event) => {
                     if (event.key === 'Enter') {
                         event.currentTarget.blur()
+                    }else{
+                        return
                     }
+                    reRenderState()
                 }}
             />
         </div>
@@ -30,6 +37,7 @@ export const CssSidebar = () => {
 
     const NodeStyling = ({node}: { node: Node<any> }) => {
         return <div>
+
             {(Object.keys(node.position)).map((positionProperty) => {
                 return <NodeStylingRow key={positionProperty} property={positionProperty} propertyType={node.position}/>
             })}
