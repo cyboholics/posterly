@@ -1,6 +1,8 @@
 import {Node} from "@/types/nodes/Node";
 import {ImageNodeCss} from "@/types/css/elements/ImageNodeCss";
 import {Position} from "@/types/css/Position";
+import {ReactElement} from "react";
+import {ImageElement} from "@/components/elements/ImageElement";
 
 const defaultCss: ImageNodeCss = {
     width: 100,
@@ -19,5 +21,11 @@ export class ImageNode extends Node<ImageNodeCss>{
 
     static build(): ImageNode {
         return new ImageNode();
+    }
+
+    generateComponent(): ReactElement {
+        return ImageElement({
+            id: this.id
+        })
     }
 }

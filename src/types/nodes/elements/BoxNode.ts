@@ -1,6 +1,8 @@
 import {Node} from "@/types/nodes/Node";
 import {BoxNodeCss} from "@/types/css/elements/BoxNodeCss";
 import {Position} from "@/types/css/Position";
+import {BoxElement} from "@/components/elements/BoxElement";
+import {ReactElement} from "react";
 
 const defaultCss: BoxNodeCss = {
     width: 100,
@@ -16,5 +18,10 @@ export class BoxNode extends Node<BoxNodeCss>{
     }
     static build(): BoxNode {
         return new BoxNode();
+    }
+    generateComponent(): ReactElement {
+        return BoxElement({
+            id: this.id
+        })
     }
 }

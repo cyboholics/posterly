@@ -1,6 +1,8 @@
 import {Node} from "@/types/nodes/Node";
 import {TextNodeCss} from "@/types/css/elements/TextNodeCss";
 import {Position} from "@/types/css/Position";
+import {ReactElement} from "react";
+import {TextElement} from "@/components/elements/TextElement";
 
 const defaultCss: TextNodeCss = {
     color : "black",
@@ -21,5 +23,11 @@ export class TextNode extends Node<TextNodeCss>{
 
     static build(): TextNode {
         return new TextNode();
+    }
+
+    generateComponent(): ReactElement {
+        return TextElement({
+            id: this.id
+        })
     }
 }
