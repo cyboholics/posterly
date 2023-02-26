@@ -13,7 +13,8 @@ export const TextElement = ({id}: { id: string }) => {
                 color: node.css.color || "black",
                 fontSize: `${node.css.size || 16}px`,
                 textDecoration: node.css.decoration?.join(" ") || "none",
-                fontFamily: node.css.font || "sans-serif"
+                fontFamily: node.css.font || "sans-serif",
+                whiteSpace: "pre-line",
             }}
                onDoubleClick={() => {
                    if (!paragraphElement?.current) return;

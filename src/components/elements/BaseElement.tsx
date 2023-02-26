@@ -13,8 +13,8 @@ export const BaseElement = ({id, children}: { id: string, children: ReactElement
         style={{
             position: "absolute",
             translate: "-50% -50%",
-            width: `${node?.css.width || 100}px`,
-            height: `${node?.css.height || 100}px`,
+            width: node?.css.width? `${node.css.width}px` : "max-content",
+            height: node?.css.height? `${node.css.height}px` : "max-content",
             marginTop: `${node?.position.y_pos || 0}px`,
             marginLeft: `${node?.position.x_pos || 0}px`,
             border: isSelected(id) ? "2px solid red" : "none",
