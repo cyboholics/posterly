@@ -1,5 +1,7 @@
+import {Pixel} from "@/types/css/property/Properties";
+
 export type ImageNodeCss = {
-    height?: number ;
-    width?: number ;
-    border_radius?: number;
+    height?: Pixel;
+    width?: Pixel;
+    border_radius?: Pixel;
 }

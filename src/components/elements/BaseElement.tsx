@@ -1,6 +1,5 @@
 import {usePoster} from "@/hooks/usePoster";
 import {ReactElement} from "react";
-import {BoxNode} from "@/types/nodes/elements/BoxNode";
 
 export const BaseElement = ({id, children}: { id: string, children: ReactElement }) => {
     const {getNodeById, isSelected, selectNode, updateNode, isOutOfRange} = usePoster();
@@ -10,7 +9,7 @@ export const BaseElement = ({id, children}: { id: string, children: ReactElement
     return <div
         className={"draggingIconContainer"}
         draggable={true}
-        onClick={()=>selectNode(id)}
+        onClick={() => selectNode(id)}
         style={{
             position: "absolute",
             translate: "-50% -50%",

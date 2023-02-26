@@ -1,6 +1,8 @@
+import {Color, Pixel} from "@/types/css/property/Properties";
+
 export type BoxNodeCss = {
-    height?: number ;
-    width?: number ;
-    background_color?: string;
-    border_radius?: number;
+    height?: Pixel;
+    width?: Pixel;
+    background_color?: Color;
+    border_radius?: Pixel;
 }

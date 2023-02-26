@@ -6,7 +6,7 @@ import {TextElement} from "@/components/elements/TextElement";
 
 const defaultCss: TextNodeCss = {
     color : "black",
-    decoration: [],
+    decoration: "",
     font: "Helvetica",
     size: 12
 }
