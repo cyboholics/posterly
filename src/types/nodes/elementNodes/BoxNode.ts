@@ -1,6 +1,6 @@
 import {Node} from "@/types/nodes/Node";
 import {Position} from "@/types/css/Position";
-import {BoxElement} from "@/types/nodes/elements/BoxElement";
+import {BoxElement} from "@/types/nodes/elementComponents/BoxElement";
 import {Color, Pixel} from "@/types/css/Properties";
 
 export type BoxNodeCss = {

@@ -1,5 +1,5 @@
 import {usePoster} from "@/hooks/usePoster";
-import {BoxNode} from "@/types/nodes/elements/BoxNode";
+import {BoxNode} from "@/types/nodes/elementNodes/BoxNode";
 import {BaseElement} from "@/components/base/BaseElement";
 
 export const BoxElement = ({id}: { id: string }) => {

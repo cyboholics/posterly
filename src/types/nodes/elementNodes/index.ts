@@ -1,7 +1,7 @@
-import {BoxNode} from "@/types/nodes/elements/BoxNode";
-import {ImageNode} from "@/types/nodes/elements/ImageNode";
-import {TextNode} from "@/types/nodes/elements/TextNode";
-import {CircleNode} from "@/types/nodes/elements/CircleNode";
+import {BoxNode} from "@/types/nodes/elementNodes/BoxNode";
+import {ImageNode} from "@/types/nodes/elementNodes/ImageNode";
+import {TextNode} from "@/types/nodes/elementNodes/TextNode";
+import {CircleNode} from "@/types/nodes/elementNodes/CircleNode";
 
 export const elements = [{
     title: "Box or Filler",

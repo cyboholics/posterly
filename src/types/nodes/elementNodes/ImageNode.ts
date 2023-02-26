@@ -1,6 +1,6 @@
 import {Node} from "@/types/nodes/Node";
 import {Position} from "@/types/css/Position";
-import {ImageElement} from "@/types/nodes/elements/ImageElement";
+import {ImageElement} from "@/types/nodes/elementComponents/ImageElement";
 import {Pixel} from "@/types/css/Properties";
 
 export type ImageNodeCss = {

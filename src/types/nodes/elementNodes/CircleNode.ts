@@ -1,6 +1,6 @@
 import {Node} from "@/types/nodes/Node";
 import {Position} from "@/types/css/Position";
-import {CircleElement} from "@/types/nodes/elements/CircleElement";
+import {CircleElement} from "@/types/nodes/elementComponents/CircleElement";
 import {Color, Pixel} from "@/types/css/Properties";
 
 export type CircleNodeCss = {
