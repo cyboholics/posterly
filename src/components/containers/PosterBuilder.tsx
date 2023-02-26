@@ -35,8 +35,7 @@ export const PosterBuilder = () => {
                 } else {
                     new_y_pos -= 1;
                 }
-            }
-            if (e.key === "ArrowDown") {
+            } else if (e.key === "ArrowDown") {
                 if (e.ctrlKey) {
                     new_y_pos += node.css.height;
                 } else if (e.shiftKey) {
@@ -44,8 +43,7 @@ export const PosterBuilder = () => {
                 } else {
                     new_y_pos += 1;
                 }
-            }
-            if (e.key === "ArrowLeft") {
+            } else if (e.key === "ArrowLeft") {
                 if (e.ctrlKey) {
                     new_x_pos -= node.css.width;
                 } else if (e.shiftKey) {
@@ -53,8 +51,7 @@ export const PosterBuilder = () => {
                 } else {
                     new_x_pos -= 1;
                 }
-            }
-            if (e.key === "ArrowRight") {
+            } else if (e.key === "ArrowRight") {
                 if (e.ctrlKey) {
                     new_x_pos += node.css.width;
                 } else if (e.shiftKey) {
