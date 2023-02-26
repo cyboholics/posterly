@@ -30,6 +30,7 @@ export const CssSidebar = () => {
 
     const NodeStyling = ({node}: { node: Node<any> }) => {
         return <div>
+            Hi
             {(Object.keys(node.position)).map((positionProperty) => {
                 return <NodeStylingRow key={positionProperty} property={positionProperty} propertyType={node.position}/>
             })}
