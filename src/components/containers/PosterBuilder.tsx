@@ -30,6 +30,7 @@ export const PosterBuilder = () => {
                 outline: "none",
             }}
             onKeyDownCapture={(e) => {
+                e.preventDefault()
                 if (e.key === "Delete") {
                     deleteSelectedNode();
                 } else if (e.key === "Escape") {
@@ -41,7 +42,7 @@ export const PosterBuilder = () => {
                 let new_x_pos = (node.position.x_pos || 0);
                 if (e.key === "ArrowUp") {
                     if (e.ctrlKey) {
-                        new_y_pos -= node.css.height;
+                        new_y_pos -= node.css.height || node.css.radius || 50;
                     } else if (e.shiftKey) {
                         new_y_pos -= 5;
                     } else {
@@ -49,7 +50,7 @@ export const PosterBuilder = () => {
                     }
                 } else if (e.key === "ArrowDown") {
                     if (e.ctrlKey) {
-                        new_y_pos += node.css.height;
+                        new_y_pos += node.css.height || node.css.radius || 50;
                     } else if (e.shiftKey) {
                         new_y_pos += 5;
                     } else {
@@ -57,7 +58,7 @@ export const PosterBuilder = () => {
                     }
                 } else if (e.key === "ArrowLeft") {
                     if (e.ctrlKey) {
-                        new_x_pos -= node.css.width;
+                        new_x_pos -= node.css.width || node.css.radius || 50;
                     } else if (e.shiftKey) {
                         new_x_pos -= 5;
                     } else {
@@ -65,7 +66,7 @@ export const PosterBuilder = () => {
                     }
                 } else if (e.key === "ArrowRight") {
                     if (e.ctrlKey) {
-                        new_x_pos += node.css.width;
+                        new_x_pos += node.css.width || node.css.radius || 50;
                     } else if (e.shiftKey) {
                         new_x_pos += 5;
                     } else {
