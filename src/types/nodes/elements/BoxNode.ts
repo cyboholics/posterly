@@ -11,10 +11,14 @@ const defaultCss: BoxNodeCss = {
 }
 
 export class BoxNode extends Node<BoxNodeCss>{
-    constructor(position: Position = {x_pos:0, y_pos:0, rotation: 0}, css: BoxNodeCss = defaultCss) {
     component = BoxElement
+    constructor(position: Position = {x_pos:0, y_pos:0, rotation: 0}, css: BoxNodeCss = defaultCss) {
         super(position, {...defaultCss, ...css});
         Object.setPrototypeOf(this, BoxNode.prototype);
+    }
+
+    copy(newPosition?:Position): BoxNode {
+        return new BoxNode(newPosition || this.position, this.css);
     }
 
     static build(): BoxNode {
