@@ -9,7 +9,7 @@ export abstract class Node<T> {
     static build(): any {
         return null;
     }
-    abstract generateComponent(): ReactElement
+    abstract component : ({id}:{id:string}) => JSX.Element
     protected constructor(position: Position, css: T) {
         this.position = position;
         this.css = css;

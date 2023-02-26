@@ -23,9 +23,5 @@ export class ImageNode extends Node<ImageNodeCss>{
         return new ImageNode();
     }
 
-    generateComponent(): ReactElement {
-        return ImageElement({
-            id: this.id
-        })
-    }
+    component = ImageElement
 }

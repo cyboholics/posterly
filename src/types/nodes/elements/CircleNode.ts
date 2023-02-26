@@ -18,9 +18,5 @@ export class CircleNode extends Node<CircleNodeCss>{
         return new CircleNode()
     }
 
-    generateComponent(): ReactElement {
-        return CircleElement({
-            id: this.id
-        })
-    }
+    component = CircleElement
 }

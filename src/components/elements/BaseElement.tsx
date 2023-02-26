@@ -4,8 +4,9 @@ import {BoxNode} from "@/types/nodes/elements/BoxNode";
 
 export const BaseElement = ({id, children}: { id: string, children: ReactElement }) => {
     const {getNodeById, isSelected, selectNode, updateNode, isOutOfRange} = usePoster();
-    const node = getNodeById(id) as BoxNode;
+    const node = getNodeById(id);
     const startPosition = {x: 0, y: 0}
+    if(!node) return null;
     return <div
         className={"draggingIconContainer"}
         draggable={true}

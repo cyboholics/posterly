@@ -19,9 +19,6 @@ export class BoxNode extends Node<BoxNodeCss>{
     static build(): BoxNode {
         return new BoxNode();
     }
-    generateComponent(): ReactElement {
-        return BoxElement({
-            id: this.id
-        })
-    }
+
+    component = BoxElement
 }

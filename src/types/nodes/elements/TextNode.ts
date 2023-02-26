@@ -25,9 +25,5 @@ export class TextNode extends Node<TextNodeCss>{
         return new TextNode();
     }
 
-    generateComponent(): ReactElement {
-        return TextElement({
-            id: this.id
-        })
-    }
+    component = TextElement
 }
