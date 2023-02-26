@@ -63,6 +63,9 @@ export const PosterBuilder = () => {
                     new_x_pos += 1;
                 }
             }
+            else{
+                return;
+            }
             if (isOutOfRange(new_x_pos, new_y_pos, node)) return;
             updateNode(node.id, null, {x_pos: new_x_pos, y_pos: new_y_pos});
         }}

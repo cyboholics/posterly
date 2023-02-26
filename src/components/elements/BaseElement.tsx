@@ -18,7 +18,8 @@ export const BaseElement = ({id, children}: { id: string, children: ReactElement
             marginTop: `${node?.position.y_pos || 0}px`,
             marginLeft: `${node?.position.x_pos || 0}px`,
             border: isSelected(id) ? "2px solid red" : "none",
-            zIndex: isSelected(id) ? 1 : 0
+            zIndex: isSelected(id) ? 1 : 0,
+            transform: `rotate(${node.position.rotation || 0}deg)`
         }}
         onDragStart={(e) => {
             startPosition.x = e.clientX;
