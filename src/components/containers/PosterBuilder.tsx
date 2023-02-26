@@ -62,8 +62,17 @@ export const PosterBuilder = () => {
                 } else {
                     new_x_pos += 1;
                 }
-            }
-            else{
+            } else if (e.key === "Tab") {
+                e.preventDefault()
+                let node_rotation = (node.position.rotation || 0);
+                if(e.shiftKey) {
+                    node_rotation -= 1;
+                } else {
+                    node_rotation += 1;
+                }
+                node_rotation %= 360;
+                updateNode(node.id, null, {rotation: node_rotation});
+            } else {
                 return;
             }
             if (isOutOfRange(new_x_pos, new_y_pos, node)) return;

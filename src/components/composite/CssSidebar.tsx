@@ -17,7 +17,7 @@ export const CssSidebar = () => {
             <label>Value</label>
             {/*TODO: Styling based on number*/}
             <input
-                type={"number"}
+                type={inputType}
                 defaultValue={propertyType[property]}
                 onBlur={(event) => {
                     propertyType[property] = (pTypeName==="number"?Number(event.target.value):(event.target.value))
