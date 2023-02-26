@@ -1,6 +1,6 @@
 import {Node} from "@/types/nodes/Node";
 import {Position} from "@/types/css/Position";
-import {TextElement} from "@/types/nodes/elements/TextElement";
+import {TextElement} from "@/types/nodes/elementComponents/TextElement";
 import {Color, Pixel, TextDecoration, TextFont} from "@/types/css/Properties";
 
 export type TextNodeCss = {

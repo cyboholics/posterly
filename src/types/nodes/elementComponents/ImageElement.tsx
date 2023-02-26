@@ -1,6 +1,6 @@
 import {usePoster} from "@/hooks/usePoster";
 import {BaseElement} from "@/components/base/BaseElement";
-import {ImageNode} from "@/types/nodes/elements/ImageNode";
+import {ImageNode} from "@/types/nodes/elementNodes/ImageNode";
 import Image from "next/image";
 
 export const ImageElement = ({id}: { id: string }) => {
