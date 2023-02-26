@@ -23,18 +23,6 @@ export const CssSidebar = () => {
                 }
                 }}
             />
-            {/*<input*/}
-            {/*    type={"text"}*/}
-            {/*    ref={inputRef}*/}
-            {/*    value={node.css[cssProperty]}*/}
-            {/*    onChange={(e) => {*/}
-            {/*        node.css[cssProperty] = (e.target.value)*/}
-            {/*        if (!inputRef.current) return;*/}
-            {/*        reRenderState()*/}
-            {/*        inputRef.current.focus()*/}
-            {/*    }*/}
-            {/*    }>*/}
-            {/*</input>*/}
         </div>
     }
 
