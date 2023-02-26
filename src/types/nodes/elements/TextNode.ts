@@ -4,7 +4,7 @@ import {Position} from "@/types/css/Position";
 
 const defaultCss: TextNodeCss = {
     color : "black",
-    decoration: "",
+    decoration: [],
     font: "Helvetica",
     size: 12
 }

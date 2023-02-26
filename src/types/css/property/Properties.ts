@@ -7,4 +7,4 @@ type colorText = "black" | "white" | "red" | "green" | "blue" | "yellow" | "oran
 export type Color = `#${singleHex}${singleHex}${singleHex}` | colorText;
 export type Pixel = number;
 export type TextFont = typeof fonts[number]
-export type TextDecoration = typeof decorations[number]
+export type TextDecoration = (typeof decorations[number])[]
