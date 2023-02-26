@@ -12,8 +12,7 @@ const defaultCss: ImageNodeCss = {
 export class ImageNode extends Node<ImageNodeCss> {
     src: string;
     component = ImageElement
-
-    constructor(position: Position = {x_pos: 0, y_pos: 0}, src: string = "/image_placeholder.png", css: ImageNodeCss = defaultCss) {
+    constructor(position: Position = {x_pos:0, y_pos:0, rotation: 0}, src: string = "/image_placeholder.png", css: ImageNodeCss = defaultCss) {
         super(position, {...defaultCss, ...css});
         this.src = src;
 
