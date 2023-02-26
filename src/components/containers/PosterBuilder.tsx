@@ -7,7 +7,7 @@ import React from "react";
 import {usePoster} from "@/hooks/usePoster";
 
 export const PosterBuilder = () => {
-    const {deleteSelectedNode, unselectNode, updateNode, getSelectedNode} = usePoster();
+    const {deleteSelectedNode, unselectNode, updateNode, getSelectedNode, isOutOfRange} = usePoster();
     return <Container
         flexDirection="row"
         justifyContent="space-between"
@@ -38,6 +38,7 @@ export const PosterBuilder = () => {
             if(e.key === "ArrowRight"){
                 new_x_pos += 1;
             }
+            if(isOutOfRange(new_x_pos, new_y_pos, node)) return;
             updateNode(node.id, null, {x_pos: new_x_pos, y_pos: new_y_pos});
         }}
     >

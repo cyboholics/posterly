@@ -1,5 +1,5 @@
 import {useContext} from "react";
-import {PosterContext, SizeName} from "@/providers/PosterProvider";
+import {PosterContext, posterSizeFromName, SizeName} from "@/providers/PosterProvider";
 import {Node} from "@/types/nodes/Node";
 import {useSnackbar} from "@/hooks/useSnackbar";
 import {Position} from "@/types/css/Position";
@@ -85,6 +85,23 @@ export const usePoster = () => {
         return posterSize;
     }
 
+    const isOutOfRange = (x: number, y: number, node: Node<any>):boolean => {
+        let x_limit_extend = (node?.css.width || node?.css.radius || 100);
+        let y_limit_extend = (node?.css.height || node?.css.radius || 100) ;
+        x_limit_extend = x_limit_extend >> 1;
+        y_limit_extend = y_limit_extend >> 1;
+
+        if(x < - x_limit_extend) return true
+        if(y < - y_limit_extend) return true
+
+        const {width, height} = posterSizeFromName[posterSize];
+
+        if(x > width + x_limit_extend) return true
+        if(y > height + y_limit_extend) return true
+
+        return false
+    }
+
     const throwError = (message: string, severity: "error" | "warning" | "info" = "error") => {
         showErrorMessage(message);
     }
@@ -102,6 +119,7 @@ export const usePoster = () => {
         unselectNode,
         getSelectedNode,
         getSelectedNodeId,
-        reRenderState
+        reRenderState,
+        isOutOfRange
     }
 }
