@@ -1,7 +1,14 @@
 import {Node} from "@/types/nodes/Node";
-import {BoxNodeCss} from "@/types/css/elements/BoxNodeCss";
 import {Position} from "@/types/css/Position";
-import {BoxElement} from "@/components/elements/BoxElement";
+import {BoxElement} from "@/types/nodes/elements/BoxElement";
+import {Color, Pixel} from "@/types/css/Properties";
+
+export type BoxNodeCss = {
+    height?: Pixel;
+    width?: Pixel;
+    background_color?: Color;
+    borderRadius?: Pixel;
+}
 
 const defaultCss: BoxNodeCss = {
     width: 100,

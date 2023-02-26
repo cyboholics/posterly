@@ -1,6 +1,6 @@
 import {usePoster} from "@/hooks/usePoster";
 import {CircleNode} from "@/types/nodes/elements/CircleNode";
-import {BaseElement} from "@/components/elements/BaseElement";
+import {BaseElement} from "@/components/base/BaseElement";
 
 export const CircleElement = ({id}: { id: string }) => {
     const {getNodeById} = usePoster();

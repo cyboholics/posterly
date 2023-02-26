@@ -1,5 +1,5 @@
 import {usePoster} from "@/hooks/usePoster";
-import {BaseElement} from "@/components/elements/BaseElement";
+import {BaseElement} from "@/components/base/BaseElement";
 import {TextNode} from "@/types/nodes/elements/TextNode";
 import {useRef} from "react";
 

@@ -1,6 +1,6 @@
 import {usePoster} from "@/hooks/usePoster";
 import {BoxNode} from "@/types/nodes/elements/BoxNode";
-import {BaseElement} from "@/components/elements/BaseElement";
+import {BaseElement} from "@/components/base/BaseElement";
 
 export const BoxElement = ({id}: { id: string }) => {
     const {getNodeById} = usePoster();
