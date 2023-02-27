@@ -29,7 +29,7 @@ export const PosterBuilder = () => {
                 border: "none",
                 outline: "none",
             }}
-            onKeyDownCapture={(e) => {
+            onKeyDown={(e) => {
                 e.preventDefault()
                 if (e.key === "Delete") {
                     deleteSelectedNode();
