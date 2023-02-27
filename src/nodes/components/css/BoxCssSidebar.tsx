@@ -1,10 +1,11 @@
 import {CssSideBarInput} from "@/components/base/CssSideBarInput";
 import {usePoster} from "@/hooks/usePoster";
-import {ImageNode} from "@/types/nodes/elementNodes/ImageNode";
+import {BoxNode} from "@/nodes/types/elements/BoxNode";
+import {Color} from "@/nodes/types/Properties";
 
-export const ImageCssSidebar = ({id}: { id: string }) => {
+export const BoxCssSidebar = ({id}: { id: string }) => {
     const {getNodeById, reRenderState} = usePoster()
-    const node = getNodeById(id) as ImageNode
+    const node = getNodeById(id) as BoxNode
     return (
         <>
             <CssSideBarInput defaultValue={node.css.height} type={"number"} label={"height"} onBlur={(e) => {
@@ -12,11 +13,16 @@ export const ImageCssSidebar = ({id}: { id: string }) => {
                 reRenderState()
             }}/>
             <CssSideBarInput defaultValue={node.css.width} type={"number"} label={"width"} onBlur={(e) => {
-                node.css.width = parseInt(e.target.value)
+                    node.css.width = parseInt(e.target.value)
+                    reRenderState()
+                }}/>
+            <CssSideBarInput defaultValue={node.css.backgroundColor} type={"color"} label={"background color"} onBlur={(e) => {
+                node.css.backgroundColor = e.target.value as Color
                 reRenderState()
             }}/>
             <CssSideBarInput defaultValue={node.css.borderRadius} label={"border radius"} type={"number"} onBlur={(e) => {
                 node.css.borderRadius = parseInt(e.target.value)
+                reRenderState()
             }}/>
         </>
     )

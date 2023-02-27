@@ -1,7 +1,8 @@
-import {Node} from "@/types/nodes/Node";
-import {Position} from "@/types/css/Position";
-import {CircleElement} from "@/types/nodes/elementComponents/CircleElement";
-import {Color, Pixel} from "@/types/css/Properties";
+import {Node} from "@/nodes/types/Node";
+import {Position} from "@/nodes/types/Position";
+import {CircleElement} from "@/nodes/components/base/CircleElement";
+import {Color, Pixel} from "@/nodes/types/Properties";
+import {CircleCssSidebar} from "@/nodes/components/css/CircleCssSidebar";
 
 export type CircleNodeCss = {
     radius?: Pixel;
@@ -15,7 +16,7 @@ const defaultCss: CircleNodeCss = {
 
 export class CircleNode extends Node<CircleNodeCss> {
     component = CircleElement
-    cssSideBar = CircleElement
+    cssSideBar = CircleCssSidebar
 
     constructor(position: Position = {x_pos: 0, y_pos: 0}, css: CircleNodeCss = defaultCss) {
         super(position, {...defaultCss, ...css});

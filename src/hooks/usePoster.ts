@@ -1,8 +1,8 @@
 import {useContext} from "react";
 import {PosterContext, posterSizeFromName} from "@/providers/PosterProvider";
-import {Node} from "@/types/nodes/Node";
+import {Node} from "@/nodes/types/Node";
 import {useSnackbar} from "@/hooks/useSnackbar";
-import {Position} from "@/types/css/Position";
+import {Position} from "@/nodes/types/Position";
 
 export const usePoster = () => {
     const {poster, setPoster, selectedNodeId, setSelectedNodeId, posterSize, setPosterSize} = useContext(PosterContext);

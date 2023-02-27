@@ -1,5 +1,5 @@
 import {createContext, ReactElement, useState} from "react";
-import {Node} from "@/types/nodes/Node";
+import {Node} from "@/nodes/types/Node";
 
 export const size_names = ["small", "medium", "large"]
 export type SizeName = typeof size_names[number]

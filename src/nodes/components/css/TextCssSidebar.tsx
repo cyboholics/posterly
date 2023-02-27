@@ -1,7 +1,7 @@
 import {CssSideBarInput} from "@/components/base/CssSideBarInput";
 import {usePoster} from "@/hooks/usePoster";
-import {Color, decorations, fonts} from "@/types/css/Properties";
-import {TextNode} from "@/types/nodes/elementNodes/TextNode";
+import {Color, decorations, fonts} from "@/nodes/types/Properties";
+import {TextNode} from "@/nodes/types/elements/TextNode";
 import {CssSideBarSelect} from "@/components/base/CssSideBarSelect";
 
 export const TextCssSidebar = ({id}: { id: string }) => {

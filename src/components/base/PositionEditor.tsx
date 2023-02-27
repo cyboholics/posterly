@@ -1,6 +1,6 @@
 import {CssSideBarInput} from "@/components/base/CssSideBarInput";
 import {usePoster} from "@/hooks/usePoster";
-import {Node} from "@/types/nodes/Node";
+import {Node} from "@/nodes/types/Node";
 
 export const PositionEditor = ({id}: { id: string }) => {
     const {getNodeById, reRenderState} = usePoster()

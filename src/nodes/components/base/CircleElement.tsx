@@ -1,5 +1,5 @@
 import {usePoster} from "@/hooks/usePoster";
-import {CircleNode} from "@/types/nodes/elementNodes/CircleNode";
+import {CircleNode} from "@/nodes/types/elements/CircleNode";
 import {BaseElement} from "@/components/base/BaseElement";
 
 export const CircleElement = ({id}: { id: string }) => {

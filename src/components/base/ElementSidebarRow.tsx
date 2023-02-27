@@ -1,5 +1,5 @@
 import React from "react";
-import {Node} from "@/types/nodes/Node";
+import {Node} from "@/nodes/types/Node";
 import {usePoster} from "@/hooks/usePoster";
 
 type ElementSidebarRowProps = {

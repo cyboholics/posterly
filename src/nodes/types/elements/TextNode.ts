@@ -1,8 +1,8 @@
-import {Node} from "@/types/nodes/Node";
-import {Position} from "@/types/css/Position";
-import {TextElement} from "@/types/nodes/elementComponents/TextElement";
-import {Color, Pixel, TextDecoration, TextFont} from "@/types/css/Properties";
-import {TextCssSidebar} from "@/types/nodes/elementCssSidebars/TextCssSidebar";
+import {Node} from "@/nodes/types/Node";
+import {Position} from "@/nodes/types/Position";
+import {TextElement} from "@/nodes/components/base/TextElement";
+import {Color, Pixel, TextDecoration, TextFont} from "@/nodes/types/Properties";
+import {TextCssSidebar} from "@/nodes/components/css/TextCssSidebar";
 
 export type TextNodeCss = {
     color?: Color;

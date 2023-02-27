@@ -1,8 +1,8 @@
-import {Node} from "@/types/nodes/Node";
-import {Position} from "@/types/css/Position";
-import {ImageElement} from "@/types/nodes/elementComponents/ImageElement";
-import {Pixel} from "@/types/css/Properties";
-import {ImageCssSidebar} from "@/types/nodes/elementCssSidebars/ImageCssSidebar";
+import {Node} from "@/nodes/types/Node";
+import {Position} from "@/nodes/types/Position";
+import {ImageElement} from "@/nodes/components/base/ImageElement";
+import {Pixel} from "@/nodes/types/Properties";
+import {ImageCssSidebar} from "@/nodes/components/css/ImageCssSidebar";
 
 export type ImageNodeCss = {
     height?: Pixel;

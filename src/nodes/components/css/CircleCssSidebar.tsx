@@ -1,9 +1,9 @@
 import {CssSideBarInput} from "@/components/base/CssSideBarInput";
 import {usePoster} from "@/hooks/usePoster";
-import {Color} from "@/types/css/Properties";
-import {CircleNode} from "@/types/nodes/elementNodes/CircleNode";
+import {Color} from "@/nodes/types/Properties";
+import {CircleNode} from "@/nodes/types/elements/CircleNode";
 
-export const BoxCssSidebar = ({id}: { id: string }) => {
+export const CircleCssSidebar = ({id}: { id: string }) => {
     const {getNodeById, reRenderState} = usePoster()
     const node = getNodeById(id) as CircleNode
     return (
