@@ -15,6 +15,7 @@ const defaultCss: CircleNodeCss = {
 
 export class CircleNode extends Node<CircleNodeCss> {
     component = CircleElement
+    cssSideBar = CircleElement
 
     constructor(position: Position = {x_pos: 0, y_pos: 0}, css: CircleNodeCss = defaultCss) {
         super(position, {...defaultCss, ...css});

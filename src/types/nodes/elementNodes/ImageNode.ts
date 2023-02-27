@@ -2,6 +2,7 @@ import {Node} from "@/types/nodes/Node";
 import {Position} from "@/types/css/Position";
 import {ImageElement} from "@/types/nodes/elementComponents/ImageElement";
 import {Pixel} from "@/types/css/Properties";
+import {ImageCssSidebar} from "@/types/nodes/elementCssSidebars/ImageCssSidebar";
 
 export type ImageNodeCss = {
     height?: Pixel;
@@ -18,6 +19,7 @@ const defaultCss: ImageNodeCss = {
 export class ImageNode extends Node<ImageNodeCss> {
     src: string;
     component = ImageElement
+    cssSideBar = ImageCssSidebar
 
     constructor(position: Position = {
         x_pos: 0,

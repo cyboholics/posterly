@@ -2,6 +2,7 @@ import {Node} from "@/types/nodes/Node";
 import {Position} from "@/types/css/Position";
 import {TextElement} from "@/types/nodes/elementComponents/TextElement";
 import {Color, Pixel, TextDecoration, TextFont} from "@/types/css/Properties";
+import {TextCssSidebar} from "@/types/nodes/elementCssSidebars/TextCssSidebar";
 
 export type TextNodeCss = {
     color?: Color;
@@ -21,6 +22,7 @@ export class TextNode extends Node<TextNodeCss> {
     text: string;
     hyperlink?: string;
     component = TextElement
+    cssSideBar = TextCssSidebar
 
     constructor(position: Position = {
         x_pos: 0,

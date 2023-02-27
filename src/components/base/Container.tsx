@@ -10,12 +10,12 @@ export type ContainerProps = {
     width?: string,
     style?: any,
     onClick?: (() => void) | ((e:React.MouseEvent) => void),
-    onKeyDownCapture?: (e: React.KeyboardEvent) => void,
+    onKeyDown?: (e: React.KeyboardEvent) => void,
 }
 
 export const Container = (props: ContainerProps) => {
     return <div
-        tabIndex={props.onKeyDownCapture ? 0 : undefined}
+        tabIndex={props.onKeyDown ? 0 : undefined}
         style={{
             display: props.display || "flex",
             flexDirection: props.flexDirection || "row",
@@ -27,7 +27,7 @@ export const Container = (props: ContainerProps) => {
             ...props.style
         }}
         onClick={props.onClick}
-        onKeyDownCapture={props.onKeyDownCapture || undefined}
+        onKeyDown={props.onKeyDown || undefined}
     >
         {props.children}
     </div>

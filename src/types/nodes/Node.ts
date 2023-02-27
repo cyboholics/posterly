@@ -6,6 +6,7 @@ export abstract class Node<T> {
     position: Position;
     css: T;
     abstract component: ({id}: { id: string }) => JSX.Element
+    abstract cssSideBar: ({id}: { id: string }) => JSX.Element
 
     protected constructor(position: Position, css: T) {
         this.position = position;

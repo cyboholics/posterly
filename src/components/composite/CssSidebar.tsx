@@ -1,51 +1,14 @@
 import {usePoster} from "@/hooks/usePoster";
-import {Node} from "@/types/nodes/Node";
 import {Container} from "@/components/base/Container";
 import React from "react";
-import {number} from "prop-types";
+import {PositionEditor} from "@/components/base/PositionEditor";
 
 export const CssSidebar = () => {
-    const {getSelectedNode, reRenderState} = usePoster();
+    const {getSelectedNode} = usePoster();
     const selectedNode = getSelectedNode();
 
-    const NodeStylingRow = ({property, propertyType}: { property: any, propertyType: any}) => {
-        //TODO: Add a way to change the type of the input
-        const pTypeName = typeof (propertyType[property])
-        const inputType = propertyType[property] instanceof number?"number":"text"
-        return <div>
-            <h5>{property}</h5>
-            <label>Value</label>
-            {/*TODO: Styling based on number*/}
-            <input
-                type={inputType}
-                defaultValue={propertyType[property]}
-                onBlur={(event) => {
-                    propertyType[property] = (pTypeName==="number"?Number(event.target.value):(event.target.value))
-                    reRenderState()
-                }}
-                onKeyDownCapture={(event) => {
-                    if (event.key === 'Enter') {
-                        event.currentTarget.blur()
-                    }else{
-                        return
-                    }
-                    reRenderState()
-                }}
-            />
-        </div>
-    }
-
-    const NodeStyling = ({node}: { node: Node<any> }) => {
-        return <div>
-
-            {(Object.keys(node.position)).map((positionProperty) => {
-                return <NodeStylingRow key={positionProperty} property={positionProperty} propertyType={node.position}/>
-            })}
-            {(Object.keys(node.css)).map((cssProperty) => {
-                return <NodeStylingRow key={cssProperty} property={cssProperty} propertyType={node.css}/>
-            })}
-        </div>
-    }
+    {/*TODO: Not re-rendering on state change using keys or drag/drop*/}
+    {/*TODO: Styling is left, to be done in respective css base elements*/}
 
     return <Container
         width="calc(30% + 20px)"
@@ -62,15 +25,11 @@ export const CssSidebar = () => {
             zIndex: 2,
             cursor: "default"
         }}
-        onClick={(event:React.MouseEvent) => {
+        onClick={(event: React.MouseEvent) => {
             event.stopPropagation();
         }}
     >
-        <div style={{width: "eval(100% - 30px)", height: "60px"}}>
-            <h1 style={{margin: "15px", textAlign: "center"}}>Style</h1>
-        </div>
-        <div style={{width: "100%"}}>
-            {selectedNode ? <NodeStyling node={selectedNode}/> : "Click On a Node to get Started"}
-        </div>
+        {selectedNode && <selectedNode.cssSideBar id={selectedNode.id}/>}
+        {selectedNode && <PositionEditor id={selectedNode.id}/>}
     </Container>
 }
