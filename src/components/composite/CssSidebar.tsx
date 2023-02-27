@@ -3,35 +3,73 @@ import {Node} from "@/types/nodes/Node";
 import {Container} from "@/components/base/Container";
 import React from "react";
 import {number} from "prop-types";
+import {decorations} from "@/types/css/Properties";
+
+const CssInput =(props: {defaultValue: any, onBlur: any, type: string}) => {
+    const {reRenderState} = usePoster();
+    return <input
+        type={props.type}
+        defaultValue={props.defaultValue}
+        onBlur={props.onBlur}
+        style={{width: "60%"}}
+        onKeyDown={(event) => {
+            if (event.key === 'Enter') {
+                event.preventDefault()
+                event.currentTarget.blur()
+                reRenderState()
+            }
+        }}
+    />
+}
 
 export const CssSidebar = () => {
     const {getSelectedNode, reRenderState} = usePoster();
     const selectedNode = getSelectedNode();
 
-    const NodeStylingRow = ({property, propertyType}: { property: any, propertyType: any}) => {
+    const NodeStylingRow = ({property, propertyType}: { property: any, propertyType: any }) => {
         //TODO: Add a way to change the type of the input
         const pTypeName = typeof (propertyType[property])
-        const inputType = propertyType[property] instanceof number?"number":"text"
-        return <div>
-            <h5>{property}</h5>
-            <label>Value</label>
+        const inputType = propertyType[property] instanceof number ? "number" : "text"
+        return <div style={{
+            display: "flex",
+            flexDirection: "row",
+            justifyContent: "space-between",
+            alignItems: "center",
+            padding: "30px",
+        }}>
+            <label>{property}</label>
             {/*TODO: Styling based on number*/}
-            <input
-                type={inputType}
-                defaultValue={propertyType[property]}
-                onBlur={(event) => {
-                    propertyType[property] = (pTypeName==="number"?Number(event.target.value):(event.target.value))
-                    reRenderState()
-                }}
-                onKeyDown={(event) => {
-                    if (event.key === 'Enter') {
-                        event.currentTarget.blur()
-                    }else{
-                        return
-                    }
-                    reRenderState()
-                }}
-            />
+            {
+                property === "decoration" && <select
+                    style={{width: "60%"}}
+                    value={propertyType[property]}
+                    multiple={true}
+                    onChange={(event) => {
+                        event.preventDefault()
+                        // if event.target.value is in propertyType[property], remove it, else add it
+                        if (propertyType[property].includes(event.target.value)) {
+                            propertyType[property] = propertyType[property].filter((decoration: string) => decoration !== event.target.value)
+                        } else {
+                            propertyType[property].push(event.target.value)
+                        }
+                        reRenderState()
+                    }}
+                >
+                    { decorations.map((decoration, index) => {
+                        return <option key={index} value={decoration}>{decoration}</option>
+                    })}
+                </select>
+            }
+            {
+                property !== "decoration" && <CssInput
+                    type={inputType}
+                    defaultValue={propertyType[property]}
+                    onBlur={(event:  React.FocusEvent<HTMLInputElement>) => {
+                        propertyType[property] = event.target.value
+                        reRenderState()
+                    }}
+                />
+            }
         </div>
     }
 
@@ -62,7 +100,7 @@ export const CssSidebar = () => {
             zIndex: 2,
             cursor: "default"
         }}
-        onClick={(event:React.MouseEvent) => {
+        onClick={(event: React.MouseEvent) => {
             event.stopPropagation();
         }}
     >

@@ -7,7 +7,6 @@ export const TextElement = ({id}: { id: string }) => {
     const {getNodeById, reRenderState, unselectNode} = usePoster();
     const node = getNodeById(id) as TextNode;
     const paragraphElement = useRef<HTMLParagraphElement>(null);
-    console.log(node)
     return (
         <BaseElement id={id}>
             <span contentEditable={false}>
