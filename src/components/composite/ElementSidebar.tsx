@@ -1,5 +1,5 @@
 import {Container} from "@/components/base/Container";
-import {elements} from "@/types/nodes/elementNodes";
+import {elements} from "@/nodes/types/elements";
 import {ElementSidebarRow} from "@/components/base/ElementSidebarRow";
 import {PosterSizeChooser} from "@/components/composite/PosterSizeChooser";
 

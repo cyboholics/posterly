@@ -1,8 +1,8 @@
-import {Node} from "@/types/nodes/Node";
-import {Position} from "@/types/css/Position";
-import {BoxElement} from "@/types/nodes/elementComponents/BoxElement";
-import {Color, Pixel} from "@/types/css/Properties";
-import {BoxCssSidebar} from "@/types/nodes/elementCssSidebars/BoxCssSidebar";
+import {Node} from "@/nodes/types/Node";
+import {Position} from "@/nodes/types/Position";
+import {BoxElement} from "@/nodes/components/base/BoxElement";
+import {Color, Pixel} from "@/nodes/types/Properties";
+import {BoxCssSidebar} from "@/nodes/components/css/BoxCssSidebar";
 
 export type BoxNodeCss = {
     height?: Pixel;

@@ -1,5 +1,5 @@
 import crypto from "crypto";
-import {Position} from "@/types/css/Position";
+import {Position} from "@/nodes/types/Position";
 
 export abstract class Node<T> {
     id: string = crypto.randomBytes(32).toString("hex");

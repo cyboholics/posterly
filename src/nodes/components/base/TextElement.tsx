@@ -1,6 +1,6 @@
 import {useRef} from "react";
 import {usePoster} from "@/hooks/usePoster";
-import {TextNode} from "@/types/nodes/elementNodes/TextNode";
+import {TextNode} from "@/nodes/types/elements/TextNode";
 import {BaseElement} from "@/components/base/BaseElement";
 
 export const TextElement = ({id}: { id: string }) => {
