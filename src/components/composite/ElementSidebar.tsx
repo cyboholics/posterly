@@ -1,6 +1,6 @@
 import {Container} from "@/components/base/Container";
 import {elements} from "@/types/nodes/elementNodes";
-import {ElementSidebarRow} from "@/components/base/SidebarRow/ElementSidebarRow";
+import {ElementSidebarRow} from "@/components/base/ElementSidebarRow";
 import {PosterSizeChooser} from "@/components/composite/PosterSizeChooser";
 
 export const ElementSidebar = () => {

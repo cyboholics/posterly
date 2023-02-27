@@ -10,7 +10,7 @@ export const BoxElement = ({id}: { id: string }) => {
             <div style={{
                 width: `${node.css.width || 100}px`,
                 height: `${node.css.height || 100}px`,
-                backgroundColor: node.css.background_color || "blue",
+                backgroundColor: node.css.backgroundColor || "blue",
                 borderRadius: `${node.css.borderRadius || 0}px`,
             }}/>
         </BaseElement>
