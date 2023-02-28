@@ -2,10 +2,12 @@ import Head from 'next/head'
 import {Inter} from '@next/font/google'
 import React from "react";
 import {PosterBuilder} from "@/components/containers/PosterBuilder";
+import {useSocket} from "@/hooks/useSocket";
 
 const inter = Inter({subsets: ['latin']})
 
 export default function Home() {
+    useSocket()
     return (
         <>
             <Head>

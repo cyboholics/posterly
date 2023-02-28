@@ -5,16 +5,20 @@ import {ImageNode} from "@/nodes/types/elements/ImageNode";
 import {Node} from "@/nodes/types/Node";
 
 export const parseNode = (json: any): Node<any> | null => {
+    let node = null;
     if (json.type === "BoxNode") {
-        return new BoxNode(json.position, json.css)
+        node = new BoxNode(json.position, json.css)
     } else if (json.type === "CircleNode") {
-        return new CircleNode(json.position, json.css)
+        node = new CircleNode(json.position, json.css)
     } else if (json.type === "TextNode") {
-        return new TextNode(json.position, json.css, json.text, json.hyperlink)
+        node = new TextNode(json.position, json.css, json.text, json.hyperlink)
     } else if (json.type === "ImageNode") {
-        return new ImageNode(json.position, json.css, json.src)
+        node = new ImageNode(json.position, json.css, json.src)
     }
-    return null;
+    if(node !== null) {
+        node.id = json.id;
+    }
+    return node;
 }
 
 export const parseNodeList = (json: any[]): Node<any>[] => {
