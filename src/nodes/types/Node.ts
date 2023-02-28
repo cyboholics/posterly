@@ -7,6 +7,7 @@ export abstract class Node<T> {
     css: T;
     abstract component: ({id}: { id: string }) => JSX.Element
     abstract cssSideBar: ({id}: { id: string }) => JSX.Element
+    abstract toJSON(): Object
 
     protected constructor(position: Position, css: T) {
         this.position = position;
@@ -17,6 +18,10 @@ export abstract class Node<T> {
     abstract copy(newPosition?: Position): Node<T>
 
     static build(): any {
+        return null;
+    }
+
+    static fromJson(json: any): Node<any> | null {
         return null;
     }
 }

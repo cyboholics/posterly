@@ -7,7 +7,13 @@ type CssSideBarInputProps = {
     type: string
 }
 export const CssSideBarInput = (props: CssSideBarInputProps) => {
-    return <>
+    return <div style={{
+        padding: "10px 5px",
+        display: "flex",
+        justifyContent: "space-between",
+        alignItems: "center",
+        width: "calc(100% - 10px)",
+    }}>
         <label>{props.label}</label>
         <input
             type={props.type}
@@ -20,5 +26,5 @@ export const CssSideBarInput = (props: CssSideBarInputProps) => {
                     event.currentTarget.blur()
                 }
             }}
-        /></>
+        /></div>
 }

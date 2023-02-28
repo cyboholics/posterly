@@ -14,13 +14,22 @@ export type BoxNodeCss = {
 const defaultCss: BoxNodeCss = {
     width: 100,
     height: 100,
-    backgroundColor: "blue",
+    backgroundColor: "#0000ff",
     borderRadius: 0
 }
 
 export class BoxNode extends Node<BoxNodeCss>{
     component = BoxElement
     cssSideBar = BoxCssSidebar
+
+    toJSON(): Object {
+        return {
+            id: this.id,
+            position: this.position,
+            css: this.css,
+            type: "BoxNode"
+        }
+    }
     constructor(position: Position = {x_pos:0, y_pos:0, rotation: 0}, css: BoxNodeCss = defaultCss) {
         super(position, {...defaultCss, ...css});
         Object.setPrototypeOf(this, BoxNode.prototype);

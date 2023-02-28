@@ -34,7 +34,6 @@ export const usePoster = () => {
     const deleteSelectedNode = () => {
         if (selectedNodeId) {
             deleteNode(selectedNodeId);
-            unselectNode();
         }
     }
     const updateNode = (id: string, cssProps: any = null, position: Position = {}) => {

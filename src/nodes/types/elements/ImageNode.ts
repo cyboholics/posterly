@@ -21,6 +21,16 @@ export class ImageNode extends Node<ImageNodeCss> {
     component = ImageElement
     cssSideBar = ImageCssSidebar
 
+    toJSON(): Object {
+        return {
+            id: this.id,
+            position: this.position,
+            css: this.css,
+            type: "ImageNode",
+            src: this.src
+        }
+    }
+
     constructor(position: Position = {
         x_pos: 0,
         y_pos: 0,

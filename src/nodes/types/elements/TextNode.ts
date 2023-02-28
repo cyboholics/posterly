@@ -24,6 +24,17 @@ export class TextNode extends Node<TextNodeCss> {
     component = TextElement
     cssSideBar = TextCssSidebar
 
+    toJSON(): Object {
+        return {
+            id: this.id,
+            position: this.position,
+            css: this.css,
+            text: this.text,
+            hyperlink: this.hyperlink,
+            type: "TextNode"
+        }
+    }
+
     constructor(position: Position = {
         x_pos: 0,
         y_pos: 0,

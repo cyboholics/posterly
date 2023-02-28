@@ -10,13 +10,22 @@ export type CircleNodeCss = {
 }
 
 const defaultCss: CircleNodeCss = {
-    backgroundColor: "blue",
+    backgroundColor: "#0000ff",
     radius: 100
 }
 
 export class CircleNode extends Node<CircleNodeCss> {
     component = CircleElement
     cssSideBar = CircleCssSidebar
+
+    toJSON(): Object {
+        return {
+            id: this.id,
+            position: this.position,
+            css: this.css,
+            type: "CircleNode"
+        }
+    }
 
     constructor(position: Position = {x_pos: 0, y_pos: 0}, css: CircleNodeCss = defaultCss) {
         super(position, {...defaultCss, ...css});

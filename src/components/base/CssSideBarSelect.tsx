@@ -8,17 +8,22 @@ type CssSideBarInputProps = {
     label: string
 }
 export const CssSideBarSelect = (props: CssSideBarInputProps) => {
-    return <>
+    return <div style={{
+        padding: "10px 5px",
+        display: "flex",
+        justifyContent: "space-between",
+        alignItems: "center",
+        width: "calc(100% - 10px)"
+    }}>
         <label>{props.label}</label>
         <select
-        value={props.defaultValue}
-        onChange={props.onChange}
-        multiple={props.multiple}
-        style={{width: "60%"}}
-    >
-        {props.options.map((option, index) => {
-            return <option key={index} value={option}>{option}</option>
-        })}
-    </select>
-        </>
+            value={props.defaultValue}
+            onChange={props.onChange}
+            multiple={props.multiple}
+        >
+            {props.options.map((option, index) => {
+                return <option key={index} value={option}>{option}</option>
+            })}
+        </select>
+    </div>
 }

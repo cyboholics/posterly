@@ -25,10 +25,15 @@ export const TextElement = ({id}: { id: string }) => {
                onBlur={() => {
                    if (!paragraphElement?.current) return;
                    paragraphElement.current.contentEditable = "false";
+                   node.text = paragraphElement.current.innerText;
                    reRenderState();
                }}
                onKeyDown={(event) => {
                    event.stopPropagation();
+                   if (event.key === "Enter") {
+                       event.preventDefault();
+                       paragraphElement.current?.blur();
+                   }
                }}
             >
                 {node.text || "Hello world"}
