@@ -8,18 +8,21 @@ type CssSideBarInputProps = {
 }
 export const CssSideBarInput = (props: CssSideBarInputProps) => {
     return <div style={{
-        padding: "10px 5px",
+        padding: "10px 25px",
         display: "flex",
         justifyContent: "space-between",
         alignItems: "center",
-        width: "calc(100% - 10px)",
+        width: "calc(100% - 70px)",
+        border: "1px solid #FFAFCC",
+        borderRadius: "5px",
+        margin: "5px 10px"
     }}>
         <label>{props.label}</label>
         <input
             type={props.type}
             value={props.value}
             onChange={props.onChange}
-            style={{width: "60%"}}
+            style={{width: "40%"}}
             onKeyDown={(event) => {
                 if (event.key === 'Enter') {
                     event.preventDefault()

@@ -6,7 +6,6 @@ import {PositionEditor} from "@/components/base/PositionEditor";
 export const CssSidebar = () => {
     const {getSelectedNode} = usePoster();
     const selectedNode = getSelectedNode();
-    {/*TODO: Styling is left, to be done in respective css base elements*/}
 
     return <Container
         width="calc(30% + 20px)"
