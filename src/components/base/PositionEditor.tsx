@@ -5,17 +5,16 @@ import {Node} from "@/nodes/types/Node";
 export const PositionEditor = ({id}: { id: string }) => {
     const {getNodeById, reRenderState} = usePoster()
     const node = getNodeById(id) as Node<any>
-    {/*TODO: BUG in position when positions of other is selected*/}
     return <>
-        <CssSideBarInput defaultValue={node.position.x_pos} label={"X position"} type={"number"} onBlur={(e) => {
+        <CssSideBarInput value={node.position.x_pos} label={"X position"} type={"number"} onChange={(e) => {
             node.position.x_pos = parseInt(e.target.value)
             reRenderState()
         }}/>
-        <CssSideBarInput defaultValue={node.position.y_pos} label={"Y position"} type={"number"} onBlur={(e) => {
+        <CssSideBarInput value={node.position.y_pos} label={"Y position"} type={"number"} onChange={(e) => {
             node.position.y_pos = parseInt(e.target.value)
             reRenderState()
         }}/>
-        <CssSideBarInput defaultValue={node.position.rotation} label={"Rotation"} type={"number"} onBlur={(e) => {
+        <CssSideBarInput value={node.position.rotation} label={"Rotation"} type={"number"} onChange={(e) => {
             node.position.rotation = parseInt(e.target.value)
             reRenderState()
         }}/>

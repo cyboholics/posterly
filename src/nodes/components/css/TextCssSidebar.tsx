@@ -9,23 +9,23 @@ export const TextCssSidebar = ({id}: { id: string }) => {
     const node = getNodeById(id) as TextNode
     return (
         <>
-            <CssSideBarInput defaultValue={node.css.size} label={"size"} type={"number"} onBlur={(e) => {
+            <CssSideBarInput value={node.css.size} label={"size"} type={"number"} onChange={(e) => {
                 node.css.size = parseInt(e.target.value)
                 reRenderState()
             }}/>
-            <CssSideBarInput defaultValue={node.css.color} label={"color"} type={"color"} onBlur={(e) => {
+            <CssSideBarInput value={node.css.color} label={"color"} type={"color"} onChange={(e) => {
                 node.css.color = e.target.value as Color
                 reRenderState()
             }}/>
-            <CssSideBarInput defaultValue={node.text} label={"text"} type={"text"} onBlur={(e) => {
+            <CssSideBarInput value={node.text} label={"text"} type={"text"} onChange={(e) => {
                 node.text = e.target.value
                 reRenderState()
             }}/>
-            <CssSideBarSelect defaultValue={node.css.font || ""} multiple={false} options={fonts} label={"font"} onChange={(e)=>{
+            <CssSideBarSelect value={node.css.font || ""} multiple={false} options={fonts} label={"font"} onChange={(e)=>{
                 node.css.font = e.target.value as string
                 reRenderState()
             }} />
-            <CssSideBarSelect defaultValue={node.css.decoration || []}  multiple={true} options={decorations} label={"text decorations"} onChange={(e)=>{
+            <CssSideBarSelect value={node.css.decoration || []}  multiple={true} options={decorations} label={"text decorations"} onChange={(e)=>{
                 if (node.css.decoration?.includes(e.target.value as string)) {
                     node.css.decoration = node.css.decoration.filter((decoration) => decoration !== e.target.value)
                 } else {

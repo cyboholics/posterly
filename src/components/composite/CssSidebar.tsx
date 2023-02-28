@@ -6,8 +6,6 @@ import {PositionEditor} from "@/components/base/PositionEditor";
 export const CssSidebar = () => {
     const {getSelectedNode} = usePoster();
     const selectedNode = getSelectedNode();
-
-    {/*TODO: Not re-rendering on state change using keys or drag/drop*/}
     {/*TODO: Styling is left, to be done in respective css base elements*/}
 
     return <Container

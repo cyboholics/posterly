@@ -1,7 +1,7 @@
 import React from "react";
 
 type CssSideBarInputProps = {
-    defaultValue: string[] | string,
+    value: string[] | string,
     onChange: React.ChangeEventHandler<HTMLSelectElement>,
     multiple: boolean,
     options: string[],
@@ -17,7 +17,7 @@ export const CssSideBarSelect = (props: CssSideBarInputProps) => {
     }}>
         <label>{props.label}</label>
         <select
-            value={props.defaultValue}
+            value={props.value}
             onChange={props.onChange}
             multiple={props.multiple}
         >

@@ -7,15 +7,15 @@ export const ImageCssSidebar = ({id}: { id: string }) => {
     const node = getNodeById(id) as ImageNode
     return (
         <>
-            <CssSideBarInput defaultValue={node.css.height} type={"number"} label={"height"} onBlur={(e) => {
+            <CssSideBarInput value={node.css.height} type={"number"} label={"height"} onChange={(e) => {
                 node.css.height = parseInt(e.target.value)
                 reRenderState()
             }}/>
-            <CssSideBarInput defaultValue={node.css.width} type={"number"} label={"width"} onBlur={(e) => {
+            <CssSideBarInput value={node.css.width} type={"number"} label={"width"} onChange={(e) => {
                 node.css.width = parseInt(e.target.value)
                 reRenderState()
             }}/>
-            <CssSideBarInput defaultValue={node.css.borderRadius} label={"border radius"} type={"number"} onBlur={(e) => {
+            <CssSideBarInput value={node.css.borderRadius} label={"border radius"} type={"number"} onChange={(e) => {
                 node.css.borderRadius = parseInt(e.target.value)
             }}/>
         </>

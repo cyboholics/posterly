@@ -1,9 +1,9 @@
 import React from "react";
 
 type CssSideBarInputProps = {
-    defaultValue: any,
+    value: any,
     label: string,
-    onBlur: ((event: React.FocusEvent<HTMLInputElement>) => void),
+    onChange: ((event: React.FocusEvent<HTMLInputElement>) => void),
     type: string
 }
 export const CssSideBarInput = (props: CssSideBarInputProps) => {
@@ -17,8 +17,8 @@ export const CssSideBarInput = (props: CssSideBarInputProps) => {
         <label>{props.label}</label>
         <input
             type={props.type}
-            defaultValue={props.defaultValue}
-            onBlur={props.onBlur}
+            value={props.value}
+            onChange={props.onChange}
             style={{width: "60%"}}
             onKeyDown={(event) => {
                 if (event.key === 'Enter') {

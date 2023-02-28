@@ -8,12 +8,12 @@ export const CircleCssSidebar = ({id}: { id: string }) => {
     const node = getNodeById(id) as CircleNode
     return (
         <>
-            <CssSideBarInput defaultValue={node.css.radius} type={"number"} label={"radius"} onBlur={(e) => {
+            <CssSideBarInput value={node.css.radius} type={"number"} label={"radius"} onChange={(e) => {
                 node.css.radius = parseInt(e.target.value)
                 reRenderState()
             }}/>
 
-            <CssSideBarInput defaultValue={node.css.backgroundColor} type={"color"} label={"background color"} onBlur={(e) => {
+            <CssSideBarInput value={node.css.backgroundColor} type={"color"} label={"background color"} onChange={(e) => {
                 node.css.backgroundColor = e.target.value as Color
                 reRenderState()
             }}/>
