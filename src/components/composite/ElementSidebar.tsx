@@ -6,7 +6,7 @@ import {PosterSizeChooser} from "@/components/composite/PosterSizeChooser";
 export const ElementSidebar = () => {
     return <Container
         width="calc(30% + 20px)"
-        height="calc(100vh - 24px)"
+        height="calc(100vh - 24px - 70px)"
         flexDirection="column"
         justifyContent="flex-start"
         alignItems="flex-start"
@@ -25,9 +25,8 @@ export const ElementSidebar = () => {
         }}>
             <h1 style={{margin: "15px", textAlign: "center"}}>Element</h1>
         </div>
-        <div style={{width: "100%"}}>
+        <div style={{width: "100%", overflow: "auto"}}>
             {elements.map((element, index) => {
-                // @ts-ignore
                 return <ElementSidebarRow
                     key={index}
                     title={element.title}

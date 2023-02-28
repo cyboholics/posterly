@@ -11,11 +11,13 @@ export const PosterBuilder = () => {
     return <Container
         flexDirection="row"
         justifyContent="space-between"
+        alignItems= "flex-start"
         style={{
             backgroundImage: "linear-gradient(to right, grey 1px, transparent 1px),\n" +
                 "linear-gradient(to bottom, grey 1px, transparent 1px)",
             backgroundSize: "20px 20px",
             position: "fixed",
+            top:'60px'
         }}
         onClick={() => {
             unselectNode();
@@ -28,6 +30,8 @@ export const PosterBuilder = () => {
             style={{
                 border: "none",
                 outline: "none",
+                alignItems: "center",
+                justifyContent: "center",
             }}
             onKeyDown={(e) => {
                 e.preventDefault()

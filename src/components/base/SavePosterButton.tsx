@@ -22,7 +22,7 @@ export const SavePosterButton = () => {
         }}
         style={{
             width: "400px",
-            height: "50px",
+            height: "70px",
             marginTop: "20px",
             textAlign: "center",
             fontSize: "20px",

@@ -12,7 +12,7 @@ export const CssSidebar = () => {
 
     return <Container
         width="calc(30% + 20px)"
-        height="calc(100vh - 24px)"
+        height="calc(100vh - 24px - 70px)"
         flexDirection="column"
         justifyContent="flex-start"
         alignItems="flex-start"
@@ -23,7 +23,8 @@ export const CssSidebar = () => {
             margin: "10px",
             maxWidth: "350px",
             zIndex: 2,
-            cursor: "default"
+            cursor: "default",
+            overflow: "auto"
         }}
         onClick={(event: React.MouseEvent) => {
             event.stopPropagation();
