@@ -3,7 +3,7 @@ import {useContext, useEffect, useRef, useState} from "react";
 import {PosterContext} from "@/providers/PosterProvider";
 import axios from "axios";
 import {SocketEvents} from "@/dto/SocketEvents";
-import {parseNode, parseNodeList} from "@/nodes/types/ParseNode";
+import {parseNode} from "@/nodes/types/ParseNode";
 import {Node} from "@/nodes/types/Node";
 export const useSocket = () => {
     const [socket, setSocket] = useState<Socket>(IO())
@@ -75,6 +75,15 @@ export const useSocket = () => {
             socket.off(SocketEvents.UPDATE_POSTER, onPosterUpdate)
         }
     }, [socket])
+
+    useEffect(()=>{
+        const timeOut = setTimeout(()=>{
+            handleUpdatesInPoster()
+        }, 1000)
+        return ()=>{
+            clearTimeout(timeOut)
+        }
+    }, [])
 
     useEffect(() => {
         axios.get('/api/socket').catch(err => {
