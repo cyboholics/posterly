@@ -1,6 +1,6 @@
-import {createContext, ReactElement, useState} from "react";
+import {createContext, ReactElement, useEffect, useState} from "react";
 import {Node} from "@/nodes/types/Node";
-
+import {parseNodeList} from "@/nodes/types/ParseNode";
 export const size_names = ["small", "medium", "large"]
 export type SizeName = typeof size_names[number]
 
@@ -37,6 +37,24 @@ const PosterProvider = ({children}: { children: ReactElement }) => {
     const [poster, setPoster] = useState<Node<any>[]>([])
     const [selectedNodeId, setSelectedNodeId] = useState<string | null>(null)
     const [posterSize, setPosterSize] = useState<SizeName>("small")
+    // const [isReady, setIsReady] = useState(false)
+
+    // useEffect(() => {
+    //     if (!isReady) return;
+    //     localStorage.setItem("poster", JSON.stringify(poster))
+    //     localStorage.setItem("posterSize", posterSize)
+    // }, [isReady, poster, posterSize])
+    //
+    // useEffect(() => {
+    //     const savedPoster = localStorage.getItem("poster")
+    //     const savedPosterSize = localStorage.getItem("posterSize") as SizeName
+    //     if (savedPoster) {
+    //         setPoster(parseNodeList(JSON.parse(savedPoster)))
+    //         setPosterSize(savedPosterSize || "small")
+    //     }
+    //     setIsReady(true)
+    // }, [])
+
     return (
         <PosterContext.Provider value={{
             poster, selectedNodeId,

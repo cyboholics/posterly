@@ -14,13 +14,22 @@ export type BoxNodeCss = {
 const defaultCss: BoxNodeCss = {
     width: 100,
     height: 100,
-    backgroundColor: "blue",
+    backgroundColor: "#0000ff",
     borderRadius: 0
 }
 
 export class BoxNode extends Node<BoxNodeCss>{
     component = BoxElement
     cssSideBar = BoxCssSidebar
+
+    toJSON(): Object {
+        return {
+            id: this.id,
+            position: this.position,
+            css: this.css,
+            type: "BoxNode"
+        }
+    }
     constructor(position: Position = {x_pos:0, y_pos:0, rotation: 0}, css: BoxNodeCss = defaultCss) {
         super(position, {...defaultCss, ...css});
         Object.setPrototypeOf(this, BoxNode.prototype);
@@ -32,5 +41,17 @@ export class BoxNode extends Node<BoxNodeCss>{
 
     static build(): BoxNode {
         return new BoxNode();
+    }
+
+    equals(other: Node<any>): boolean {
+        if(!(other instanceof BoxNode)) return false;
+        return this.id === other.id &&
+            this.position.x_pos === other.position.x_pos &&
+            this.position.y_pos === other.position.y_pos &&
+            this.position.rotation === other.position.rotation &&
+            this.css.height === other.css.height &&
+            this.css.width === other.css.width &&
+            this.css.backgroundColor === other.css.backgroundColor &&
+            this.css.borderRadius === other.css.borderRadius
     }
 }

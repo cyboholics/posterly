@@ -24,6 +24,17 @@ export class TextNode extends Node<TextNodeCss> {
     component = TextElement
     cssSideBar = TextCssSidebar
 
+    toJSON(): Object {
+        return {
+            id: this.id,
+            position: this.position,
+            css: this.css,
+            text: this.text,
+            hyperlink: this.hyperlink,
+            type: "TextNode"
+        }
+    }
+
     constructor(position: Position = {
         x_pos: 0,
         y_pos: 0,
@@ -41,5 +52,19 @@ export class TextNode extends Node<TextNodeCss> {
 
     static build(): TextNode {
         return new TextNode();
+    }
+
+    equals(other: Node<any>): boolean {
+        if(!(other instanceof TextNode)) return false;
+        return this.id === other.id &&
+            this.position.x_pos === other.position.x_pos &&
+            this.position.y_pos === other.position.y_pos &&
+            this.position.rotation === other.position.rotation &&
+            this.css.color === other.css.color &&
+            this.css.decoration === other.css.decoration &&
+            this.css.font === other.css.font &&
+            this.css.size === other.css.size &&
+            this.text === other.text &&
+            this.hyperlink === other.hyperlink
     }
 }

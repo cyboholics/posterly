@@ -21,6 +21,16 @@ export class ImageNode extends Node<ImageNodeCss> {
     component = ImageElement
     cssSideBar = ImageCssSidebar
 
+    toJSON(): Object {
+        return {
+            id: this.id,
+            position: this.position,
+            css: this.css,
+            type: "ImageNode",
+            src: this.src
+        }
+    }
+
     constructor(position: Position = {
         x_pos: 0,
         y_pos: 0,
@@ -37,5 +47,17 @@ export class ImageNode extends Node<ImageNodeCss> {
 
     static build(): ImageNode {
         return new ImageNode();
+    }
+
+    equals(other: Node<any>): boolean {
+        if(!(other instanceof ImageNode)) return false;
+        return this.id === other.id &&
+            this.position.x_pos === other.position.x_pos &&
+            this.position.y_pos === other.position.y_pos &&
+            this.position.rotation === other.position.rotation &&
+            this.css.height === other.css.height &&
+            this.css.width === other.css.width &&
+            this.css.borderRadius === other.css.borderRadius &&
+            this.src === other.src
     }
 }

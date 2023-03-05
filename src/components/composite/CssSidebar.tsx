@@ -7,9 +7,6 @@ export const CssSidebar = () => {
     const {getSelectedNode} = usePoster();
     const selectedNode = getSelectedNode();
 
-    {/*TODO: Not re-rendering on state change using keys or drag/drop*/}
-    {/*TODO: Styling is left, to be done in respective css base elements*/}
-
     return <Container
         width="calc(30% + 20px)"
         height="calc(100vh - 24px)"
